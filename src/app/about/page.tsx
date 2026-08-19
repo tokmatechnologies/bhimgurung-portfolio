@@ -1,0 +1,20 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import Footer from "../footer";
+import Header from "../header";
+import { contact, leadershipRoles } from "../site-data";
+
+export const metadata: Metadata = { title: "About Bhim Gurung | Executive, Entrepreneur & Community Leader", description: "Learn about Bhim Gurung's work in business, community leadership, education, culture, music, and sports." };
+
+export default function AboutPage() {
+  return (
+    <><Header solid /><main className="inner-page">
+      <section className="inner-hero"><div className="shell inner-hero__grid"><div><p className="kicker">About Bhim Gurung</p><h1>A life of business, leadership, service, education, and culture.</h1><p>Global CEO · Entrepreneur · Investor · Educator · Community Leader · Musician</p></div><div className="inner-hero__image"><Image src="/Bhim-gurung1.jpeg" alt="Bhim Gurung" fill preload sizes="(max-width: 800px) 100vw, 42vw" /></div></div></section>
+      <section className="section bio-section"><div className="shell prose-grid"><aside><p className="kicker">The story</p><div className="bio-facts"><span>Based in</span><strong>Omaha, Nebraska</strong><span>Current role</span><strong>Global CEO, GBMIC</strong><span>Education</span><strong>BBA · Advanced music study</strong></div></aside><article className="prose"><p className="lead">Mr. Bhim Gurung is a multifaceted business executive, entrepreneur, investor, educator, community leader, leadership coach, musician, cultural advocate, and sports enthusiast.</p><p>With experience across global business management, investment, healthcare services, accounting, real estate, logistics, courier services, restaurant and hospitality, digital marketing and sales, e-commerce, and technology, he brings a diverse entrepreneurial perspective to business and community development.</p><p>He currently serves as Global CEO of Global Business Management &amp; Investment Co. (GBMIC), focusing on business development, investment opportunities, strategic relationships, partnerships, and global growth.</p></article></div></section>
+      <section className="section story-band"><div className="shell"><p className="kicker kicker--light">Community &amp; nonprofit leadership</p><div className="story-band__grid"><h2>Leadership is measured by the opportunities we create for others.</h2><div className="role-list">{leadershipRoles.map(([org, role]) => <div className="role" key={org}><span>{org}</span><strong>{role}</strong></div>)}</div></div></div></section>
+      <section className="section"><div className="shell chapter-grid"><article><span>01</span><h2>Education &amp; teaching</h2><p>Bhim worked as a teacher with Omaha Public Schools and the Balmiki Education Foundation in Jhapa, Nepal. He has also taught dance through schools, ethnic organizations, cultural programs, and youth activities.</p></article><article><span>02</span><h2>Music &amp; cultural arts</h2><p>A professional Dhuki Tabla player and multi-instrumentalist, Bhim has pursued advanced study in music and used the arts to preserve and share cultural traditions across generations.</p></article><article><span>03</span><h2>Leadership &amp; coaching</h2><p>As a leadership coach with Thrive Leadership Club and through his involvement with Amway Global America, he has supported personal growth, team development, communication, and entrepreneurship.</p></article><article><span>04</span><h2>Sports &amp; teamwork</h2><p>His experience as a football team manager, volleyball player, and supporter of community athletics reflects his belief in discipline, coordination, and shared purpose.</p></article></div></section>
+      <section className="statement-section"><div className="shell"><p>“Business leadership with community service, education, culture, and global vision.”</p><Link className="button button--primary" href="/contact">Start a conversation ↗</Link><a className="statement-phone" href={contact.phoneHref}>{contact.phoneDisplay}</a></div></section>
+    </main><Footer /></>
+  );
+}
