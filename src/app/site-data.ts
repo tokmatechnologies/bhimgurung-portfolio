@@ -44,3 +44,8 @@ export const contact = {
   email: "contact@bhimgurung.com",
   address: "7440 Crown Point Ave, Omaha, NE 68134",
 };
+
+export const socialLinks = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/bhim-gurung-78795288" },
+  { label: "GBMIC360", href: "https://www.gbmic360.com" },
+] as const;
