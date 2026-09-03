@@ -9,9 +9,20 @@ import { contact, ventures } from "./site-data";
 import TeamSection from "./team-section";
 
 const ventureImages = [
-  "/venture-investment.jpg", "/venture-technology.jpg", "/venture-cinema.jpg",
-  "/venture-events.jpg", "/venture-healthcare.jpg", "/venture-community.jpg",
-  "/venture-foundation.jpg", "/venture-culture.jpg", "/venture-journal.jpg",
+  { src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=82", credit: "Dylan Gillis", href: "https://unsplash.com/photos/KdeqA3aTnBY" },
+  { src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=82", credit: "Marvin Meyer", href: "https://unsplash.com/photos/SYTO3xs06fU" },
+  { src: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=900&q=82", credit: "Scott Graham", href: "https://unsplash.com/photos/5fNmWej4tAA" },
+  { src: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=900&q=82", credit: "CHUTTERSNAP", href: "https://unsplash.com/photos/BNBA1h-NgdY" },
+  { src: "https://images.unsplash.com/flagged/photo-1558954157-aa76c0d246c6?auto=format&fit=crop&w=900&q=82", credit: "Precondo CA", href: "https://unsplash.com/photos/QHDFm084RNk" },
+  { src: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=900&q=82", credit: "Marvin Meyer", href: "https://unsplash.com/photos/SYTO3xs06fU" },
+  { src: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=900&q=82", credit: "CHUTTERSNAP", href: "https://unsplash.com/photos/BNBA1h-NgdY" },
+  { src: "https://images.unsplash.com/flagged/photo-1558954157-aa76c0d246c6?auto=format&fit=crop&w=900&q=82", credit: "Precondo CA", href: "https://unsplash.com/photos/QHDFm084RNk" },
+  { src: "https://images.unsplash.com/photo-1666887360680-9dc27a1d2753?auto=format&fit=crop&w=900&q=82", credit: "Nappy", href: "https://unsplash.com/photos/dcBO4nt4MRE" },
+  { src: "https://images.unsplash.com/photo-1666887360680-9dc27a1d2753?auto=format&fit=crop&w=900&q=82", credit: "Nappy", href: "https://unsplash.com/photos/dcBO4nt4MRE" },
+  { src: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=900&q=82", credit: "Al Elmes", href: "https://unsplash.com/photos/ULHxWq8reao" },
+  { src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=82", credit: "Dylan Gillis", href: "https://unsplash.com/photos/KdeqA3aTnBY" },
+  { src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=82", credit: "Dylan Gillis", href: "https://unsplash.com/photos/KdeqA3aTnBY" },
+  { src: "https://images.unsplash.com/photo-1667388969250-1c7220bf3f37?auto=format&fit=crop&w=900&q=82", credit: "Glenov Brankovic", href: "https://unsplash.com/photos/e4B5AvA7Jqo" },
 ] as const;
 
 const processSteps = [
@@ -70,7 +81,11 @@ export default function Home() {
           <div className="portfolio-container grid items-start gap-10 min-[900px]:grid-cols-[minmax(0,320px)_1fr] min-[900px]:gap-18">
             <header className="flex flex-col gap-5 min-[900px]:sticky min-[900px]:top-24" data-reveal-group><p className="eyebrow" data-reveal>Business &amp; Entrepreneurship</p><h2 className="section-title max-w-[20ch]" data-reveal>A connected portfolio built around service.</h2><p className="text-[17px] leading-relaxed text-portfolio-muted" data-reveal>Bhim&apos;s ventures bring together investment, technology, culture, health care, and community organizations.</p></header>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group>
-              {ventures.map(([title, description], index) => <article className="group border border-portfolio-line bg-white transition duration-300 hover:-translate-y-1 hover:border-portfolio-accent hover:shadow-portfolio-hover" key={title} data-reveal><div className="relative aspect-[16/10] overflow-hidden"><Image src={ventureImages[index]} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover grayscale-[.15] transition duration-500 group-hover:scale-[1.03] group-hover:grayscale-0" /></div><div className="p-6"><span className="text-sm font-medium tracking-[.04em] text-portfolio-accent">{String(index + 1).padStart(2, "0")}</span><h3 className="mt-5 text-[15.5px] leading-[1.35] font-medium tracking-[-.01em] text-portfolio-ink">{title}</h3><p className="mt-3 text-[15px] leading-[1.65] text-portfolio-muted">{description}</p></div></article>)}
+              {ventures.map(([title, description], index) => {
+                const image = ventureImages[index];
+
+                return <article className="group border border-portfolio-line bg-white transition duration-300 hover:-translate-y-1 hover:border-portfolio-accent hover:shadow-portfolio-hover" key={title} data-reveal><div className="relative aspect-[16/10] overflow-hidden"><Image src={image.src} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover grayscale-[.15] transition duration-500 group-hover:scale-[1.03] group-hover:grayscale-0" /><a className="absolute right-1.5 bottom-1.5 bg-black/55 px-1.5 py-1 text-[8px] leading-none text-white/80 transition hover:bg-black/75 hover:text-white" href={image.href} target="_blank" rel="noreferrer">Photo: {image.credit} / Unsplash</a></div><div className="p-6"><span className="text-sm font-medium tracking-[.04em] text-portfolio-accent">{String(index + 1).padStart(2, "0")}</span><h3 className="mt-5 text-[15.5px] leading-[1.35] font-medium tracking-[-.01em] text-portfolio-ink">{title}</h3><p className="mt-3 text-[15px] leading-[1.65] text-portfolio-muted">{description}</p></div></article>;
+              })}
             </div>
           </div>
         </section>

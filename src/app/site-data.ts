@@ -26,15 +26,20 @@ export const leadershipRoles = [
 ] as const;
 
 export const ventures = [
-  ["International Investment Corporation (IIC)", "A global investment community connecting people with opportunities to learn, build, and grow wealth."],
-  ["Tokma Digital Corporation", "A technology venture focused on digital products, modern innovation, and global collaboration."],
-  ["Tokma Technologies Pvt. Ltd.", "Software and technology solutions that help businesses operate, adapt, and scale."],
-  ["Great Events Movies", "Community-focused entertainment and an accessible, comfortable cinematic experience."],
-  ["Great Events Center", "A premier Omaha venue for weddings, conferences, cultural events, and celebrations."],
-  ["UNHCR — Nebraska Agency for Chore Services", "Compassionate in-home support for individuals with disabilities, injuries, or illnesses."],
-  ["Triratna International Foundation", "A nonprofit dedicated to peace, prosperity, service, and the well-being of people and animals."],
-  ["International Council of Gurung Buddhism", "Supporting Gurung Buddhist tradition, cultural leadership, and spiritual preservation."],
-  ["Gurung Buddhism Journal", "A digital journal preserving Gurung cultural heritage and sharing Buddhist scholarship worldwide."],
+  ["GMIC / GBMIC", "The management and investment network at the center of Bhim Gurung's work, helping businesses strengthen operations, plan responsibly, and pursue sustainable growth."],
+  ["E-Global Media House", "A media and digital communications venture supporting content, visibility, and connections across communities and markets."],
+  ["GBMIC Accounting", "Practical accounting and financial organization for entrepreneurs, families, and growing businesses."],
+  ["iMart Courier", "Accessible courier support focused on moving parcels reliably and keeping local businesses and communities connected."],
+  ["Realty Karma", "A GBMIC real-estate platform designed to connect property seekers and opportunities across Nepal, the United States, and Dubai."],
+  ["Nepal Link", "A community-focused platform connecting Nepali people, businesses, services, and opportunities across borders."],
+  ["iMart Logistics", "An Omaha-based transportation and logistics company providing freight capacity and dependable supply-chain support."],
+  ["United Homes", "A housing and real-estate venture focused on helping families and investors identify practical property opportunities."],
+  ["United Family Home Health Care", "An Omaha home-care provider offering compassionate, non-medical support that helps clients live safely and comfortably at home."],
+  ["United Nebraska Home Care Revival", "An Omaha home-health agency supporting people who need skilled, therapeutic, and everyday care in their homes."],
+  ["Great Events Center", "An Omaha venue for weddings, conferences, premieres, cultural programs, and community celebrations."],
+  ["International Investment Corporation (IIC)", "An international investment organization connecting leadership, ideas, and opportunities for responsible long-term growth."],
+  ["Bhim Gurung LLC", "Bhim Gurung's personal business entity, bringing his leadership, investment perspective, and entrepreneurial work under one name."],
+  ["Great Event Hangout Restaurant & Bar", "An Omaha hospitality destination bringing together dining, drinks, and a welcoming setting for gatherings and celebrations."],
 ] as const;
 
 export const contact = {

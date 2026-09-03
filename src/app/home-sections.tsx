@@ -66,8 +66,8 @@ function LineIcon({
 const affiliations = [
   ["E-Global Media House", "/affiliations/e-global.png"],
   ["GBMIC", "/affiliations/gbmic.png"],
+  ["Tokma Technologies", "/affiliations/tokma.svg"],
   ["GMAS", "/affiliations/gmas.png"],
-  ["GMIC", "/affiliations/gmic.png"],
   ["Great Event Centers", "/affiliations/great-events-center.svg"],
   ["Great Events Restaurant & Bar", "/affiliations/great-events.png"],
   ["i-Mart Curier", "/affiliations/imart-curier.png"],

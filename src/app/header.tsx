@@ -27,7 +27,7 @@ function ContactIcon({ type }: { type: "location" | "email" | "phone" | "globe" 
     linkedin: <><path d="M6 9v9M6 6v.01M10 18v-5a4 4 0 0 1 8 0v5M10 9v9" /></>,
   };
 
-  return <svg className="size-4 shrink-0 text-portfolio-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[type]}</svg>;
+  return <svg className="size-4 shrink-0 text-[#f1582d]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[type]}</svg>;
 }
 
 export default function Header({ solid = false }: { solid?: boolean }) {
@@ -47,20 +47,20 @@ export default function Header({ solid = false }: { solid?: boolean }) {
       id="top"
       className="fixed inset-x-0 top-0 z-50"
     >
-      <div className="h-10 border-b border-white/10 bg-portfolio-ink-soft text-white">
-        <div className="portfolio-container flex h-full items-center justify-between gap-5 text-[13px]">
+      <div className="h-10 border-b border-[#f1582d]/20 bg-white/88 text-[#f1582d] shadow-sm backdrop-blur-xl">
+        <div className="portfolio-container flex h-full items-center justify-between gap-5 text-[14px] font-semibold tracking-[0.75px]">
           <div className="flex min-w-0 items-center gap-4">
-            <a className="flex min-w-0 items-center gap-2 transition-colors hover:text-white/75" href="https://www.google.com/maps/search/?api=1&query=7440+Crown+Point+Ave+Omaha+NE+68134" target="_blank" rel="noreferrer">
+            <a className="flex min-w-0 items-center gap-2 transition-colors hover:text-[#c73f1c]" href="https://www.google.com/maps/search/?api=1&query=7440+Crown+Point+Ave+Omaha+NE+68134" target="_blank" rel="noreferrer">
               <ContactIcon type="location" />
               <span className="truncate">{contact.address}</span>
             </a>
-            <span className="hidden h-5 w-px bg-white/25 sm:block" aria-hidden="true" />
+            <span className="hidden h-5 w-px bg-[#f1582d]/25 sm:block" aria-hidden="true" />
             <a className="hidden transition-opacity hover:opacity-70 sm:block" href={socialLinks[0].href} target="_blank" rel="noreferrer" aria-label="Bhim Gurung on LinkedIn"><ContactIcon type="linkedin" /></a>
             <a className="hidden transition-opacity hover:opacity-70 sm:block" href="https://www.gbmic360.com" target="_blank" rel="noreferrer" aria-label="Visit GBMIC"><ContactIcon type="globe" /></a>
           </div>
           <div className="flex shrink-0 items-center gap-5">
-            <a className="hidden items-center gap-2 transition-colors hover:text-white/75 md:flex" href={`mailto:${contact.email}`}><ContactIcon type="email" /><span>{contact.email}</span></a>
-            <a className="flex items-center gap-2 transition-colors hover:text-white/75" href={contact.phoneHref}><ContactIcon type="phone" /><span className="hidden min-[480px]:inline">{contact.phoneDisplay}</span><span className="min-[480px]:hidden">Call</span></a>
+            <a className="hidden items-center gap-2 transition-colors hover:text-[#c73f1c] md:flex" href={`mailto:${contact.email}`}><ContactIcon type="email" /><span>{contact.email}</span></a>
+            <a className="flex items-center gap-2 transition-colors hover:text-[#c73f1c]" href={contact.phoneHref}><ContactIcon type="phone" /><span className="hidden min-[480px]:inline">{contact.phoneDisplay}</span><span className="min-[480px]:hidden">Call</span></a>
           </div>
         </div>
       </div>
