@@ -15,7 +15,7 @@ export default function ContactPage() {
   return (
     <>
       <Header solid />
-      <main className="bg-white pt-[101px]">
+      <main className="bg-white pt-[101px] md:pt-[105px]">
         <section className="bg-portfolio-paper py-20 md:py-24 lg:py-30">
           <div className="portfolio-container grid items-center gap-12 min-[900px]:grid-cols-[1.05fr_.95fr] min-[900px]:gap-20">
             <div>

@@ -147,18 +147,20 @@ export function AffiliationsSection() {
         >
           {affiliations.map(([name, src]) => (
             <li
-              className="flex min-h-36 items-center justify-center bg-white px-5 py-6 min-[620px]:min-h-33"
+              className="flex min-h-36 items-center justify-center bg-white px-3 py-4 min-[620px]:min-h-33"
               key={name}
               data-reveal
             >
               {src ? (
-                <Image
-                  src={src}
-                  alt={name}
-                  width={160}
-                  height={80}
-                  className="max-h-14 w-auto object-contain"
-                />
+                <div className="relative h-20 w-full">
+                  <Image
+                    src={src}
+                    alt={name}
+                    fill
+                    sizes="(min-width: 980px) 180px, (min-width: 620px) 25vw, 50vw"
+                    className="object-contain"
+                  />
+                </div>
               ) : (
                 <span className="text-center text-sm font-medium leading-snug text-portfolio-muted">
                   {name}

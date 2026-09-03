@@ -52,7 +52,7 @@ export default function Home() {
           </div>
           <div className="portfolio-container relative order-1">
             <div className="max-w-[620px]">
-              <h1 className="max-w-[600px] text-[clamp(32px,4.2vw,52px)] leading-[1.1] font-medium tracking-[-.03em]">I help business owners run tighter operations, invest with patience, and grow companies that last.</h1>
+              <h1 className="max-w-[600px] text-[clamp(32px,4.2vw,52px)] leading-[1.1] font-medium tracking-[-.03em]">I Help Business Owners Run Tighter Operations, Invest With Patience, and Grow Companies That Last.</h1>
               <p className="mt-5 max-w-[46ch] text-lg leading-[1.55] text-white/80">I&apos;m Bhim Gurung, founder and CEO of GBMIC. For two decades I&apos;ve built and advised companies across nine areas, from management and investment to healthcare and real estate. I&apos;m also a trusted voice for Nebraska&apos;s Bhutanese-American entrepreneurs.</p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link className="reference-button bg-portfolio-accent text-white hover:bg-portfolio-accent-strong" href="/#contact">Book a consultation</Link>
@@ -81,7 +81,7 @@ export default function Home() {
           <div className="portfolio-container grid items-start gap-10 min-[900px]:grid-cols-[minmax(0,320px)_1fr] min-[900px]:gap-18">
             <header className="flex flex-col gap-5 min-[900px]:sticky min-[900px]:top-24" data-reveal-group><p className="eyebrow" data-reveal>Business &amp; Entrepreneurship</p><h2 className="section-title max-w-[20ch]" data-reveal>A connected portfolio built around service.</h2><p className="text-[17px] leading-relaxed text-portfolio-muted" data-reveal>Bhim&apos;s ventures bring together investment, technology, culture, health care, and community organizations.</p></header>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group>
-              {ventures.map(([title, description], index) => {
+              {ventures.filter(([title]) => title !== "United Homes").map(([title, description], index) => {
                 const image = ventureImages[index];
 
                 return <article className="group border border-portfolio-line bg-white transition duration-300 hover:-translate-y-1 hover:border-portfolio-accent hover:shadow-portfolio-hover" key={title} data-reveal><div className="relative aspect-[16/10] overflow-hidden"><Image src={image.src} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover grayscale-[.15] transition duration-500 group-hover:scale-[1.03] group-hover:grayscale-0" /><a className="absolute right-1.5 bottom-1.5 bg-black/55 px-1.5 py-1 text-[8px] leading-none text-white/80 transition hover:bg-black/75 hover:text-white" href={image.href} target="_blank" rel="noreferrer">Photo: {image.credit} / Unsplash</a></div><div className="p-6"><span className="text-sm font-medium tracking-[.04em] text-portfolio-accent">{String(index + 1).padStart(2, "0")}</span><h3 className="mt-5 text-[15.5px] leading-[1.35] font-medium tracking-[-.01em] text-portfolio-ink">{title}</h3><p className="mt-3 text-[15px] leading-[1.65] text-portfolio-muted">{description}</p></div></article>;

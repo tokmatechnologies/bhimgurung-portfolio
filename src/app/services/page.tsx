@@ -20,7 +20,7 @@ export default function ServicesPage() {
   return (
     <>
       <Header solid />
-      <main className="bg-white pt-[101px] text-portfolio-muted">
+      <main className="bg-white pt-[101px] text-portfolio-muted md:pt-[105px]">
         <section className="bg-portfolio-paper py-24 lg:py-36">
           <div className={container} data-reveal-group>
             <p className={eyebrow} data-reveal>

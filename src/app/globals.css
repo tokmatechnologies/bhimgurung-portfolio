@@ -61,6 +61,12 @@ main [id] {
   scroll-margin-top: 101px;
 }
 
+@media (min-width: 768px) {
+  main [id] {
+    scroll-margin-top: 105px;
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--font), system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
