@@ -66,93 +66,86 @@ export default function Header({ solid = false }: { solid?: boolean }) {
       </div>
 
       <div className={`transition duration-300 ${opaque ? "border-b border-portfolio-ink/5 bg-white/80 shadow-sm backdrop-blur-xl" : "bg-transparent"}`}>
-      <div className="portfolio-container flex h-[61px] items-center justify-between gap-6">
-        <Link
-          className="relative flex h-9 w-36 items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent focus-visible:ring-offset-4"
-          href="/#home"
-          aria-label="Bhim Gurung home"
-        >
-          <Image
-            className={`h-auto w-33 transition-opacity ${opaque ? "opacity-0" : "opacity-100"}`}
-            src="/reference-logo-header-light.png"
-            alt="Bhim Gurung"
-            width={132}
-            height={33}
-            preload
-          />
-          <Image
-            className={`absolute left-0 h-auto w-33 transition-opacity ${opaque ? "opacity-100" : "opacity-0"}`}
-            src="/reference-logo-header-dark.png"
-            alt=""
-            aria-hidden="true"
-            width={132}
-            height={33}
-          />
-        </Link>
+        <div className="portfolio-container flex h-[61px] items-center justify-between gap-6">
+          <Link
+            className="relative flex h-16 items-center rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent focus-visible:ring-offset-4"
+            href="/#home"
+            aria-label="Bhim Gurung home"
+            style={{ width: "calc(var(--spacing) * 46)" }}
+          >
+            <Image
+              className="h-auto transition-all duration-300"
+              src="/bhim-gurung-logo.png"
+              alt="Bhim Gurung"
+              width={180}
+              height={48}
+              preload
+              style={{ filter: opaque ? "none" : "brightness(0) invert(1)" }}
+            />
+          </Link>
 
-        <nav className="hidden items-center gap-7 min-[901px]:flex" aria-label="Primary navigation">
-          {navItems.map(([label, href]) => (
-            <Link
-              className={`${navLink} ${
-                opaque
+          <nav className="hidden items-center gap-7 min-[901px]:flex" aria-label="Primary navigation">
+            {navItems.map(([label, href]) => (
+              <Link
+                className={`${navLink} ${opaque
                   ? "text-portfolio-muted hover:text-portfolio-ink focus-visible:ring-offset-white"
                   : "text-white hover:text-white/70 focus-visible:ring-offset-portfolio-ink"
-              }`}
-              href={href}
-              key={href}
-            >
-              {label}
-            </Link>
-          ))}
-        </nav>
+                  }`}
+                href={href}
+                key={href}
+              >
+                {label}
+              </Link>
+            ))}
+          </nav>
 
-        <div className="hidden min-[901px]:block">
-          <Link
-            className="reference-button bg-portfolio-accent text-white hover:bg-portfolio-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent focus-visible:ring-offset-4"
-            href="/#contact"
+          <div className="hidden min-[901px]:block">
+            <Link
+              className="reference-button bg-portfolio-accent text-white hover:bg-portfolio-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent focus-visible:ring-offset-4"
+              href="/#contact"
+            >
+              Get in touch
+            </Link>
+          </div>
+
+          <button
+            className="flex size-10 flex-col items-center justify-center gap-1.5 border border-portfolio-line bg-white text-portfolio-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent min-[901px]:hidden"
+            type="button"
+            aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+            onClick={() => setMenuOpen((open) => !open)}
           >
-            Get in touch
-          </Link>
+            <span className={`h-px w-5 bg-current transition ${menuOpen ? "translate-y-1 rotate-45" : ""}`} />
+            <span className={`h-px w-5 bg-current transition ${menuOpen ? "-translate-y-1 -rotate-45" : ""}`} />
+          </button>
         </div>
 
-        <button
-          className="flex size-10 flex-col items-center justify-center gap-1.5 border border-portfolio-line bg-white text-portfolio-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent min-[901px]:hidden"
-          type="button"
-          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
-          aria-expanded={menuOpen}
-          aria-controls="mobile-navigation"
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          <span className={`h-px w-5 bg-current transition ${menuOpen ? "translate-y-1 rotate-45" : ""}`} />
-          <span className={`h-px w-5 bg-current transition ${menuOpen ? "-translate-y-1 -rotate-45" : ""}`} />
-        </button>
-      </div>
-
-      {menuOpen && (
-        <nav
-          className="mx-5 mb-5 grid gap-1 rounded-portfolio-md border border-portfolio-line bg-white p-3 shadow-portfolio-hover min-[901px]:hidden"
-          id="mobile-navigation"
-          aria-label="Mobile navigation"
-        >
-          {navItems.map(([label, href]) => (
+        {menuOpen && (
+          <nav
+            className="mx-5 mb-5 grid gap-1 rounded-portfolio-md border border-portfolio-line bg-white p-3 shadow-portfolio-hover min-[901px]:hidden"
+            id="mobile-navigation"
+            aria-label="Mobile navigation"
+          >
+            {navItems.map(([label, href]) => (
+              <Link
+                className="rounded-portfolio-sm px-4 py-3 font-medium text-portfolio-ink transition hover:bg-portfolio-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent"
+                href={href}
+                key={href}
+                onClick={() => setMenuOpen(false)}
+              >
+                {label}
+              </Link>
+            ))}
             <Link
-              className="rounded-portfolio-sm px-4 py-3 font-medium text-portfolio-ink transition hover:bg-portfolio-paper focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent"
-              href={href}
-              key={href}
+              className="mt-2 bg-portfolio-accent px-4 py-3 text-center font-medium text-white"
+              href="/#contact"
               onClick={() => setMenuOpen(false)}
             >
-              {label}
+              Get in touch
             </Link>
-          ))}
-          <Link
-            className="mt-2 bg-portfolio-accent px-4 py-3 text-center font-medium text-white"
-            href="/#contact"
-            onClick={() => setMenuOpen(false)}
-          >
-            Get in touch
-          </Link>
-        </nav>
-      )}
+          </nav>
+        )}
       </div>
     </header>
   );

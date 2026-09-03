@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="flex flex-col items-start gap-2.5">
           <Image
             className="h-8 w-auto"
-            src="/reference-logo-header-light.png"
+            src="/bhim-gurung-logo.png"
             alt="Bhim Gurung"
             width={127}
             height={32}

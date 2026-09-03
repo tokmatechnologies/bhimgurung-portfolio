@@ -6,9 +6,9 @@
   --color-portfolio-muted: #6c7179;
   --color-portfolio-line: #d1d3d6;
   --color-portfolio-paper: #f7f7f7;
-  --color-portfolio-accent: #f1582d;
-  --color-portfolio-accent-soft: #ff9a78;
-  --color-portfolio-accent-strong: #d5461f;
+  --color-portfolio-accent: #d62024;
+  --color-portfolio-accent-soft: #ff6b65;
+  --color-portfolio-accent-strong: #a01a1a;
   --color-portfolio-cream: #fefee8;
   --color-portfolio-rose: #fdeee7;
   --color-portfolio-green: #eefff3;
@@ -41,7 +41,7 @@
 
 :root {
   --primary: #0d1721;
-  --secondary: #d82029;
+  --secondary: #d62024;
   --ink: #111820;
   --white: #fff;
   --muted: #c8cdd5;
@@ -219,7 +219,7 @@ body {
 }
 
 .home .service-showcase__tabs button>.service-showcase__tab-icon {
-  color: #f1582d;
+  color: #d62024;
 }
 
 .home .service-showcase__tabs button strong {
@@ -238,19 +238,19 @@ body {
   padding-left: 28px;
   background: #111;
   color: #fff;
-  box-shadow: inset 4px 0 #f1582d;
+  box-shadow: inset 4px 0 #d62024;
 }
 
 .home .service-showcase__tabs button.is-active>.service-showcase__tab-icon {
-  color: #f1582d;
+  color: #d62024;
 }
 
 .home .service-showcase__tabs button:focus-visible {
-  box-shadow: inset 3px 0 #f1582d;
+  box-shadow: inset 3px 0 #d62024;
 }
 
 .home .service-showcase__tabs button.is-active:focus-visible {
-  box-shadow: inset 4px 0 #f1582d;
+  box-shadow: inset 4px 0 #d62024;
 }
 
 .home .service-showcase__panel {
@@ -261,7 +261,7 @@ body {
 
 .home .service-showcase__copy>p:first-child {
   margin-bottom: 18px;
-  color: #f1582d;
+  color: #d62024;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: .02em;
@@ -278,7 +278,7 @@ body {
   width: 46px;
   height: 1px;
   margin: 24px 0;
-  background: #f1582d;
+  background: #d62024;
 }
 
 .home .service-showcase__copy>p:not(:first-child) {
@@ -292,14 +292,14 @@ body {
   margin-top: 28px;
   padding-inline: 24px;
   gap: 12px;
-  background: #f1582d;
+  background: #d62024;
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -.01em;
 }
 
 .home .service-showcase__copy>a:hover {
-  background: #d5461f;
+  background: #a01a1a;
 }
 
 .home .service-showcase__visual {
@@ -314,7 +314,7 @@ body {
 }
 
 .home .service-showcase__hub span {
-  color: #f1582d;
+  color: #d62024;
   font-weight: 500;
   letter-spacing: .08em;
 }
@@ -325,7 +325,7 @@ body {
 
 .home .service-showcase__spokes::before,
 .home .service-showcase__spokes::after {
-  background: rgba(241, 88, 45, .5);
+  background: rgba(214, 32, 36, .5);
 }
 
 .home .service-showcase__node {
@@ -333,7 +333,7 @@ body {
 }
 
 .home .service-showcase__node span {
-  border-color: #f1582d;
+  border-color: #d62024;
   background: #fff;
   color: #111;
 }
@@ -353,11 +353,11 @@ body {
 
   .home .service-showcase__tabs button.is-active {
     padding-left: 22px;
-    box-shadow: inset 0 -4px #f1582d;
+    box-shadow: inset 0 -4px #d62024;
   }
 
   .home .service-showcase__tabs button.is-active:focus-visible {
-    box-shadow: inset 0 -4px #f1582d;
+    box-shadow: inset 0 -4px #d62024;
   }
 }
 
