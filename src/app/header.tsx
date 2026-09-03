@@ -106,12 +106,14 @@ export default function Header({ solid = false }: { solid?: boolean }) {
           ))}
         </nav>
 
-        <Link
-          className="reference-button hidden bg-portfolio-accent text-white hover:bg-portfolio-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent focus-visible:ring-offset-4 min-[901px]:inline-flex"
-          href="/#contact"
-        >
-          Get in touch
-        </Link>
+        <div className="hidden min-[901px]:block">
+          <Link
+            className="reference-button bg-portfolio-accent text-white hover:bg-portfolio-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent focus-visible:ring-offset-4"
+            href="/#contact"
+          >
+            Get in touch
+          </Link>
+        </div>
 
         <button
           className="flex size-10 flex-col items-center justify-center gap-1.5 border border-portfolio-line bg-white text-portfolio-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent min-[901px]:hidden"

@@ -45,14 +45,14 @@ export default function Home() {
     <div>
       <Header />
       <main>
-        <section className="relative flex flex-col overflow-hidden bg-portfolio-showcase pt-32 text-white min-[760px]:min-h-portfolio-hero min-[760px]:justify-center min-[760px]:py-30" id="home">
-          <div className="relative order-2 mt-8 h-85 w-full min-[760px]:absolute min-[760px]:inset-0 min-[760px]:mt-0 min-[760px]:h-auto">
-            <Image src="/reference-gurung-hero.jpg" alt="Bhim Gurung" fill sizes="100vw" preload className="object-cover object-right" />
-            <div className="absolute inset-0 hidden bg-reference-hero min-[760px]:block" />
+        <section className="relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-portfolio-showcase py-32 text-white min-[760px]:min-h-portfolio-hero min-[760px]:py-30" id="home">
+          <div className="absolute inset-0">
+            <Image src="/reference-gurung-hero.jpg" alt="Bhim Gurung" fill sizes="100vw" preload className="object-cover object-[80%_center] min-[760px]:object-right" />
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,10,12,.82),rgba(8,10,12,.48))] min-[760px]:bg-reference-hero" />
           </div>
-          <div className="portfolio-container relative order-1">
+          <div className="portfolio-container relative">
             <div className="max-w-[620px]">
-              <h1 className="max-w-[600px] text-[clamp(32px,4.2vw,52px)] leading-[1.1] font-medium tracking-[-.03em]">I Help Business Owners Run Tighter Operations, Invest With Patience, and Grow Companies That Last.</h1>
+              <h1 className="max-w-[600px] text-[clamp(32px,4.2vw,48px)] leading-[1.1] font-medium tracking-[-.03em]">I Help Business Owners Run Tighter Operations, Invest With Patience, and Grow Companies That Last.</h1>
               <p className="mt-5 max-w-[46ch] text-lg leading-[1.55] text-white/80">I&apos;m Bhim Gurung, founder and CEO of GBMIC. For two decades I&apos;ve built and advised companies across nine areas, from management and investment to healthcare and real estate. I&apos;m also a trusted voice for Nebraska&apos;s Bhutanese-American entrepreneurs.</p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link className="reference-button bg-portfolio-accent text-white hover:bg-portfolio-accent-strong" href="/#contact">Book a consultation</Link>
