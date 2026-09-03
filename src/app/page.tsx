@@ -77,12 +77,17 @@ export default function Home() {
 
         <AffiliationsSection />
 
-        <section className="scroll-mt-16 bg-white py-portfolio-section" id="services">
-          <div className="portfolio-container">
-            <header className="section-heading" data-reveal-group><p className="eyebrow" data-reveal>Services</p><h2 className="section-title max-w-[24ch]" data-reveal>Management and investment solutions that help your business grow.</h2><p className="max-w-[56ch] text-[17px] leading-relaxed text-portfolio-muted" data-reveal>Each service is hands-on and specific — start with what you need today, and add more as things grow.</p></header>
-            <ServiceShowcase />
-          </div>
-        </section>
+        <div className="home">
+          <section className="premium-services" id="services">
+            <div className="shell">
+              <header className="premium-services__intro" data-reveal>
+                <div className="premium-services__eyebrow"><Image src="/bhim-gurung-logo.png" alt="" width={579} height={139} /><span>Our services</span></div>
+                <div><h2>One group. Diverse expertise. Built for global growth.</h2><p>We bring together business, healthcare, finance, technology, logistics, hospitality, and digital expertise under one integrated network.</p></div>
+              </header>
+              <div className="service-showcase-band"><ServiceShowcase /></div>
+            </div>
+          </section>
+        </div>
 
         <AudienceSection />
         <ReasonsSection />

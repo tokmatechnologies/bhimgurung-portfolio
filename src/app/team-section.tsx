@@ -15,25 +15,13 @@ const teamMembers = [
     name: "Suman Pokhrel",
     role: "Chief Finance Officer",
     photo: "teams/suman-pokhrel.jpeg",
-    bio: "Keeps day-to-day delivery on track — scheduling, vendors, and the operational detail that lets client work move without friction.",
+    bio: "Oversees financial planning, budgeting, investments, and overall financial management in Dubai, supporting sustainable growth and informed business decisions.",
   },
   {
     name: "Arjun Uprety",
     role: "Chief Executive Officer at GMIC",
     photo: "teams/Arjun-Uprety.jpeg",
-    bio: "Works with owners on where to put capital and how to protect it, turning goals into a plan that holds up over time.",
-  },
-  {
-    name: "Suman Pokhrel",
-    role: "Chief Finance Officer",
-    photo: "teams/suman-pokhrel.jpeg",
-    bio: "Keeps day-to-day delivery on track — scheduling, vendors, and the operational detail that lets client work move without friction.",
-  },
-  {
-    name: "Arjun Uprety",
-    role: "Chief Executive Officer at GMIC",
-    photo: "teams/Arjun-Uprety.jpeg",
-    bio: "Works with owners on where to put capital and how to protect it, turning goals into a plan that holds up over time.",
+    bio: "Leads the overall strategy, business development, investment initiatives, and operations of Global Business Management and Investment Company Nepal (GMIC Nepal), focusing on growth opportunities and strategic partnerships.",
   },
 ] as const;
 
@@ -219,7 +207,7 @@ export default function TeamSection() {
                     alt=""
                     fill
                     sizes="(max-width: 560px) 82vw, 300px"
-                    className="object-cover object-top grayscale contrast-[1.03]"
+                    className="object-cover object-top  contrast-[1.03]"
                   />
 
                   <div
