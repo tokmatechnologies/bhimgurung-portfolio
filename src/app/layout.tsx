@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import { Instrument_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
+import ScrollReveal from "./scroll-reveal";
 
 const instrumentSans = Instrument_Sans({
   variable: "--font",
   subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -27,8 +30,15 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${instrumentSans.variable} h-full`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <Script id="reveal-bootstrap" strategy="beforeInteractive">
+          {`document.documentElement.classList.add("reveal-ready");setTimeout(function(){if(!document.documentElement.classList.contains("reveal-active"))document.documentElement.classList.remove("reveal-ready")},4000)`}
+        </Script>
+        <ScrollReveal />
+        {children}
+      </body>
     </html>
   );
 }

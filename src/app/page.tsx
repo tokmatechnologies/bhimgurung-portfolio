@@ -1,165 +1,113 @@
 import Image from "next/image";
 import Link from "next/link";
-import ContactForm from "./contact-form";
-import Counter from "./counter";
 import Footer from "./footer";
 import Header from "./header";
-import ScrollReveal from "./scroll-reveal";
+import HomeContactSection from "./home-contact-section";
+import { AffiliationsSection, AudienceSection, ReasonsSection, TestimonialsSection } from "./home-sections";
 import ServiceShowcase from "./service-showcase";
 import { contact, ventures } from "./site-data";
+import TeamSection from "./team-section";
 
 const ventureImages = [
-  "/venture-investment.jpg",
-  "/venture-technology.jpg",
-  "/venture-cinema.jpg",
-  "/venture-events.jpg",
-  "/venture-healthcare.jpg",
-  "/venture-community.jpg",
-  "/venture-foundation.jpg",
-  "/venture-culture.jpg",
-  "/venture-journal.jpg",
+  "/venture-investment.jpg", "/venture-technology.jpg", "/venture-cinema.jpg",
+  "/venture-events.jpg", "/venture-healthcare.jpg", "/venture-community.jpg",
+  "/venture-foundation.jpg", "/venture-culture.jpg", "/venture-journal.jpg",
 ] as const;
 
-const ventureMarks = ["IIC", "TOKMA", "TOKMA TECH", "GEM", "GEC", "UNHCR", "TIF", "ICGB", "GBJ"] as const;
+const processSteps = [
+  ["Book a call", "We start with a conversation about where the business is and where you want it to go."],
+  ["Discovery", "A close look at the numbers, the operation, and the opportunities on the table."],
+  ["Strategy", "A plan you can act on — priorities, timelines, and the reasoning behind each."],
+  ["Execution", "Hands-on support putting the plan to work, adjusting as reality comes in."],
+  ["Ongoing support", "A steady partner for the decisions that keep coming after the launch."],
+] as const;
 
-function ProcessIcon({ index }: { index: number }) {
-  const icons = [
-    <><path d="M7.5 4.5h-2A1.5 1.5 0 0 0 4 6c0 7.73 6.27 14 14 14a1.5 1.5 0 0 0 1.5-1.5v-2l-4-1-1 2a12 12 0 0 1-8-8l2-1-1-4Z" /><path d="M14 5h5v5M19 5l-6 6" /></>,
-    <><circle cx="11" cy="11" r="6" /><path d="m16 16 4 4M8.5 11h5M11 8.5v5" /></>,
-    <><circle cx="12" cy="12" r="8" /><circle cx="12" cy="12" r="3" /><path d="M12 4V2M20 12h2M12 20v2M4 12H2" /></>,
-    <><path d="M4 19V9l8-5 8 5v10" /><path d="M8 19v-5h8v5M2 20h20" /><path d="m9 10 2 2 4-4" /></>,
-    <><path d="M7 7h10a4 4 0 0 1 4 4v1M17 17H7a4 4 0 0 1-4-4v-1" /><path d="m18 4-2 3 2 3M6 14l2 3-2 3" /></>,
-  ];
-  return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{icons[index]}</svg>;
-}
+const faqs = [
+  ["What kinds of businesses do you work with?", "Owner-run businesses across health care, real estate, restaurants, and retail — small to mid-size, at any stage."],
+  ["How does the first consultation work?", "It's a straightforward conversation — no cost, no obligation. We talk through your situation and whether we're a good fit."],
+  ["Do you help with investment and financing?", "Yes. Investment advisory and financial planning are core to GBMIC, alongside day-to-day management support."],
+  ["Do you support the Bhutanese-American community directly?", "Yes. Bhim is an active community leader in Nebraska and regularly connects members to guidance and opportunity."],
+] as const;
 
 export default function Home() {
   return (
-    <div className="home">
-      <ScrollReveal />
+    <div>
       <Header />
       <main>
-        <section className="home-hero hero" id="home">
-          <div className="hero__background" aria-hidden="true">
-            <Image src="/bhim-gurung5.jpeg" alt="" fill sizes="100vw" preload />
+        <section className="relative flex flex-col overflow-hidden bg-portfolio-showcase pt-32 text-white min-[760px]:min-h-portfolio-hero min-[760px]:justify-center min-[760px]:py-30" id="home">
+          <div className="relative order-2 mt-8 h-85 w-full min-[760px]:absolute min-[760px]:inset-0 min-[760px]:mt-0 min-[760px]:h-auto">
+            <Image src="/reference-gurung-hero.jpg" alt="Bhim Gurung" fill sizes="100vw" preload className="object-cover object-right" />
+            <div className="absolute inset-0 hidden bg-reference-hero min-[760px]:block" />
           </div>
-          <div className="hero__veil" aria-hidden="true" />
-          <div className="hero__content">
-            <p className="eyebrow reveal">Global CEO · GBMIC</p>
-            <h1 className="reveal reveal--delay-1">Helping businesses grow through strategic management.</h1>
-            <p className="hero__intro reveal reveal--delay-2">
-              Bhim Gurung leads Global Business Management &amp; Investment Co. and is a trusted
-              voice in Nebraska&apos;s Bhutanese-American community — guiding owners to manage,
-              invest, and grow with clarity.
-            </p>
-            <div className="hero__actions reveal reveal--delay-3">
-              <a className="button button--primary" href={contact.phoneHref}>Let&apos;s talk</a>
-              <Link className="button button--secondary" href="/services">See services</Link>
-            </div>
-          </div>
-        </section>
-
-        <section className="home-about home-section" id="about">
-          <div className="shell home-about__intro" data-reveal>
-            <h2>Leadership across business, investment, and community.</h2>
-          </div>
-          <div className="shell home-about__feature">
-            <div className="home-about__image" data-reveal>
-              <Image src="/Bhim-gurung1.jpeg" alt="Bhim Gurung in his executive office" fill sizes="(max-width: 800px) 100vw, 55vw" />
-              <div className="home-about__image-note"><span>Global perspective</span><strong>Omaha roots</strong></div>
-            </div>
-            <div className="home-about__content" data-reveal>
-              <p className="home-about__lead">Sound management and patient investment build businesses that last.</p>
-              <p className="home-copy">Bhim Gurung leads GBMIC with an integrated approach to business growth. Alongside his work with clients, he is a trusted voice in Nebraska&apos;s Bhutanese-American community — connecting people to opportunity and helping them find their footing.</p>
-              <Link className="text-link" href="/about">Discover his full story <span aria-hidden="true">↗</span></Link>
-              <div className="home-stats">
-                <div data-reveal><strong><span className="home-stats__number"><Counter value={500} suffix="+" /></span></strong><span>Clients served each year</span></div>
-                <div data-reveal><strong><span className="home-stats__number"><Counter value={9} /></span></strong><span>Service areas under one roof</span></div>
-                <div data-reveal><strong><span className="home-stats__number"><Counter value={100} suffix="%" /></span></strong><span>Focused on your outcome</span></div>
+          <div className="portfolio-container relative order-1">
+            <div className="max-w-[620px]">
+              <h1 className="max-w-[600px] text-[clamp(32px,4.2vw,52px)] leading-[1.1] font-medium tracking-[-.03em]">I help business owners run tighter operations, invest with patience, and grow companies that last.</h1>
+              <p className="mt-5 max-w-[46ch] text-lg leading-[1.55] text-white/80">I&apos;m Bhim Gurung, founder and CEO of GBMIC. For two decades I&apos;ve built and advised companies across nine areas, from management and investment to healthcare and real estate. I&apos;m also a trusted voice for Nebraska&apos;s Bhutanese-American entrepreneurs.</p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link className="reference-button bg-portfolio-accent text-white hover:bg-portfolio-accent-strong" href="/#contact">Book a consultation</Link>
+                <Link className="reference-button border border-white/40 text-white hover:border-white hover:bg-white/10" href="/about">About me</Link>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="ventures home-section" id="ventures">
-          <div className="shell">
-            <div className="home-section-heading" data-reveal>
-              <p className="home-label">Business portfolio</p>
-              <h2>Business ventures and associations across Omaha and beyond.</h2>
-              <p>From investment and real estate to community and cultural organizations — a connected portfolio built around service.</p>
+        <section className="scroll-mt-16 bg-white py-portfolio-section" id="about">
+          <div className="portfolio-container grid items-start gap-x-20 gap-y-8 min-[900px]:grid-cols-[200px_1fr]">
+            <p className="eyebrow pt-2" data-reveal>About</p>
+            <div className="flex flex-col gap-7" data-reveal-group>
+              <h2 className="section-title max-w-[26ch]" data-reveal>Two decades of leadership across business, investment, and community.</h2>
+              <p className="max-w-[54ch] text-[19px] leading-[1.55] text-portfolio-muted" data-reveal>Bhim Gurung leads GBMIC with a simple belief: sound management and patient investment build businesses that last. Alongside his work with clients, he is a trusted voice in Nebraska&apos;s Bhutanese-American community — connecting people to opportunity and helping them find their footing.</p>
             </div>
-            <div className="venture-grid">
-              {ventures.map(([title, description], index) => (
-                <article className="venture-card" key={title} data-reveal>
-                  <div className="venture-card__visual">
-                    <Image src={ventureImages[index]} alt="" fill sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw" />
-                    <span>{String(index + 1).padStart(2, "0")}</span>
-                  </div>
-                  <div className="venture-card__body">
-                    <div className="venture-card__logo" role="img" aria-label={`${title} logo`}>{ventureMarks[index]}</div>
-                    <h3>{title}</h3><p>{description}</p>
-                  </div>
-                </article>
-              ))}
+            <div className="border-t border-portfolio-line pt-2 min-[900px]:col-start-2" data-reveal-group>
+              <div className="grid min-[560px]:grid-cols-3 min-[560px]:gap-5">
+                {[["20+", "Years leading businesses"], ["9", "Service areas under one roof"], ["100%", "Focused on your outcome"]].map(([value, label]) => <div className="border-b border-portfolio-line py-5 min-[560px]:border-0 min-[560px]:pt-7" key={label} data-reveal><strong className="block text-[clamp(40px,5vw,56px)] leading-none font-medium tracking-[-.04em] text-portfolio-ink">{value}</strong><span className="mt-2 block max-w-[20ch] text-[15px] text-portfolio-muted">{label}</span></div>)}
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="premium-services" id="services">
-          <div className="shell">
-            <header className="premium-services__intro" data-reveal>
-              <div className="premium-services__eyebrow"><Image src="/bhim-gurung-logo.png" alt="" width={579} height={139} /><span>Our services</span></div>
-              <div><h2>One group. Diverse expertise. Built for global growth.</h2><p>We bring together business, healthcare, finance, technology, logistics, hospitality, and digital expertise under one integrated network.</p></div>
-            </header>
-
-            <div className="service-showcase-band"><ServiceShowcase /></div>
-          </div>
-        </section>
-
-        <section className="home-process home-section" id="process">
-          <div className="shell home-split">
-            <div data-reveal><p className="home-label">Process</p><h2>A clear path from first call to a lasting partnership.</h2></div>
-            <div className="process-list">
-              {[
-                ["Book a call", "We start with a conversation about where the business is and where you want it to go."],
-                ["Discovery", "A close look at the operation, goals, and opportunities on the table."],
-                ["Strategy", "A practical plan — priorities, timelines, and the reasoning behind each action."],
-                ["Execution", "Hands-on support putting the plan to work and adjusting as reality comes in."],
-                ["Ongoing support", "A steady partner for the decisions that keep coming after the launch."],
-              ].map(([title, text], index) => <article key={title} data-reveal><div className="process-list__marker"><ProcessIcon index={index} /></div><div><h3>{title}</h3><p>{text}</p></div></article>)}
+        <section className="scroll-mt-16 bg-portfolio-paper py-portfolio-section" id="ventures">
+          <div className="portfolio-container grid items-start gap-10 min-[900px]:grid-cols-[minmax(0,320px)_1fr] min-[900px]:gap-18">
+            <header className="flex flex-col gap-5 min-[900px]:sticky min-[900px]:top-24" data-reveal-group><p className="eyebrow" data-reveal>Business &amp; Entrepreneurship</p><h2 className="section-title max-w-[20ch]" data-reveal>A connected portfolio built around service.</h2><p className="text-[17px] leading-relaxed text-portfolio-muted" data-reveal>Bhim&apos;s ventures bring together investment, technology, culture, health care, and community organizations.</p></header>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+              {ventures.map(([title, description], index) => <article className="group border border-portfolio-line bg-white transition duration-300 hover:-translate-y-1 hover:border-portfolio-accent hover:shadow-portfolio-hover" key={title} data-reveal><div className="relative aspect-[16/10] overflow-hidden"><Image src={ventureImages[index]} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover grayscale-[.15] transition duration-500 group-hover:scale-[1.03] group-hover:grayscale-0" /></div><div className="p-6"><span className="text-sm font-medium tracking-[.04em] text-portfolio-accent">{String(index + 1).padStart(2, "0")}</span><h3 className="mt-5 text-[15.5px] leading-[1.35] font-medium tracking-[-.01em] text-portfolio-ink">{title}</h3><p className="mt-3 text-[15px] leading-[1.65] text-portfolio-muted">{description}</p></div></article>)}
             </div>
           </div>
         </section>
 
-        <section className="home-faq home-section" id="faq">
-          <div className="shell home-split">
-            <div data-reveal><p className="home-label">FAQ</p><h2>Answers to the questions that come up most.</h2><Link href="/contact" className="home-outline-button">Still curious? Ask directly</Link></div>
-            <div className="faq-list">
-              <details open data-reveal><summary>What kinds of businesses do you work with?<span>+</span></summary><p>Owner-run businesses across healthcare, real estate, restaurants, retail, logistics, and professional services — small to mid-size, at any stage.</p></details>
-              <details data-reveal><summary>How does the first consultation work?<span>+</span></summary><p>We begin with a focused conversation about your priorities, current position, and the results you want to achieve.</p></details>
-              <details data-reveal><summary>Do you help with investment and financing?<span>+</span></summary><p>Yes. Bhim provides practical investment insight and helps identify responsible opportunities and relevant professional connections.</p></details>
-              <details data-reveal><summary>Do you support the Bhutanese-American community directly?<span>+</span></summary><p>Yes. Community service, organizational leadership, and creating opportunities for Bhutanese-American families and businesses are central to Bhim&apos;s work.</p></details>
-              <details data-reveal><summary>How do I get started?<span>+</span></summary><p>Call {contact.phoneDisplay} for the fastest response or use the form below to share a few details.</p></details>
+        <AffiliationsSection />
+
+        <section className="scroll-mt-16 bg-white py-portfolio-section" id="services">
+          <div className="portfolio-container">
+            <header className="section-heading" data-reveal-group><p className="eyebrow" data-reveal>Services</p><h2 className="section-title max-w-[24ch]" data-reveal>Management and investment solutions that help your business grow.</h2><p className="max-w-[56ch] text-[17px] leading-relaxed text-portfolio-muted" data-reveal>Each service is hands-on and specific — start with what you need today, and add more as things grow.</p></header>
+            <ServiceShowcase />
+          </div>
+        </section>
+
+        <AudienceSection />
+        <ReasonsSection />
+
+        <section className="scroll-mt-16 bg-portfolio-paper py-portfolio-section" id="process">
+          <div className="portfolio-container grid items-start gap-8 min-[900px]:grid-cols-[2fr_3fr] min-[900px]:gap-20">
+            <header className="flex flex-col gap-4" data-reveal-group><p className="eyebrow" data-reveal>Process</p><h2 className="section-title" data-reveal>A clear path from first call to a lasting partnership.</h2></header>
+            <ol data-reveal-group>{processSteps.map(([title, text], index) => <li className="group grid border-b border-portfolio-line py-6 transition-colors hover:bg-white min-[560px]:-mx-5 min-[560px]:grid-cols-[64px_1fr] min-[560px]:gap-6 min-[560px]:px-5 min-[560px]:py-8 min-[560px]:first:pt-1" key={title} data-reveal><span className="text-[22px] font-medium tracking-wide text-portfolio-accent">{String(index + 1).padStart(2, "0")}</span><div className="mt-2 min-[560px]:mt-0"><h3 className="text-[22px] font-medium tracking-tight text-portfolio-ink transition-colors group-hover:text-portfolio-accent">{title}</h3><p className="mt-2 max-w-[60ch] leading-relaxed text-portfolio-muted">{text}</p></div></li>)}</ol>
+          </div>
+        </section>
+
+        <TeamSection />
+        <TestimonialsSection />
+
+        <section className="scroll-mt-16 bg-white py-portfolio-section" id="faq">
+          <div className="portfolio-container grid gap-12 min-[900px]:grid-cols-[2fr_3fr] min-[900px]:gap-20">
+            <header data-reveal-group><p className="eyebrow" data-reveal>FAQ</p><h2 className="section-title mt-4" data-reveal>Answers to the questions that come up most.</h2><Link href="/#contact" className="reference-button mt-7 border border-portfolio-line text-portfolio-ink hover:border-portfolio-ink hover:shadow-portfolio" data-reveal>Still curious? Ask directly</Link></header>
+            <div className="border-t border-portfolio-line" data-reveal-group>
+              {faqs.map(([question, answer], index) => <details className="group border-b border-portfolio-line" open={index === 0} key={question} data-reveal><summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6 text-[19px] font-medium tracking-[-.01em] text-portfolio-ink">{question}<span className="text-[26px] leading-none font-normal text-portfolio-muted transition-transform group-open:rotate-45 group-open:text-portfolio-ink">+</span></summary><p className="max-w-[60ch] pb-6 text-[16.5px] leading-[1.55] text-portfolio-muted">{answer}</p></details>)}
+              <details className="group border-b border-portfolio-line" data-reveal><summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-6 text-[19px] font-medium tracking-[-.01em] text-portfolio-ink">How do I get started?<span className="text-[26px] leading-none font-normal text-portfolio-muted transition-transform group-open:rotate-45 group-open:text-portfolio-ink">+</span></summary><p className="max-w-[60ch] pb-6 text-[16.5px] leading-[1.55] text-portfolio-muted">Send a note through the form below or email <a className="text-portfolio-accent underline underline-offset-4" href={`mailto:${contact.email}`}>{contact.email}</a> — you&apos;ll hear back personally.</p></details>
             </div>
           </div>
         </section>
 
-        <section className="home-contact" id="contact">
-          <div className="shell contact-grid">
-            <div className="contact-copy" data-reveal>
-              <h2>Let&apos;s talk business.<br />I&apos;ll take it from there.</h2>
-              <dl>
-                <div><dt>Address</dt><dd>{contact.address}, United States</dd></div>
-                <div><dt>Phone</dt><dd><a href={contact.phoneHref}>{contact.phoneDisplay}</a></dd></div>
-                <div><dt>Fax</dt><dd>{contact.fax}</dd></div>
-                <div><dt>Email</dt><dd><a href={"mailto:" + contact.email}>{contact.email}</a></dd></div>
-                <div><dt>Personal</dt><dd>bhimgurung.com</dd></div>
-                <div><dt>Company</dt><dd><a href="https://www.gbmic360.com">gbmic360.com</a></dd></div>
-              </dl>
-            </div>
-            <div data-reveal><ContactForm compact /></div>
-          </div>
-        </section>
+        <HomeContactSection />
       </main>
       <Footer />
     </div>

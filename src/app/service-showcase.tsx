@@ -1,78 +1,54 @@
-"use client";
-
-import Link from "next/link";
-import { useState } from "react";
-
 const serviceItems = [
-  ["Global Business Management & Investment", "Strategic management and investment guidance that aligns operations, capital, and long-term growth.", "Strategy", "Capital", "Growth"],
-  ["Healthcare Services", "People-first healthcare support and operational guidance for organizations serving families and communities.", "Care", "Operations", "Community"],
-  ["Accounting Services", "Reliable financial organization, reporting, and accounting support for confident business decisions.", "Reporting", "Clarity", "Control"],
-  ["Real Estate", "Opportunity-focused property and investment guidance built around responsible, lasting value.", "Property", "Analysis", "Value"],
-  ["Logistics", "Practical systems that help transportation and logistics operations move reliably and efficiently.", "Planning", "Movement", "Delivery"],
-  ["Courier Services", "Dependable delivery operations designed around speed, visibility, and customer trust.", "Speed", "Tracking", "Trust"],
-  ["Restaurant & Hospitality", "Business support for restaurants, event venues, and memorable customer experiences.", "Service", "Events", "Experience"],
-  ["Digital Marketing & Sales", "Clear positioning and modern outreach strategies that connect businesses with the right customers.", "Brand", "Reach", "Sales"],
-  ["E-Commerce", "Modern digital commerce thinking that helps products, services, and customers connect online.", "Storefront", "Commerce", "Scale"],
-  ["IT Technologies", "Technology perspectives and digital solutions that help organizations adapt and grow.", "Systems", "Digital", "Innovation"],
+  ["Business Management", "Day-to-day operations, structure, and strategy — so the business runs the way you intended."],
+  ["Investment Advisory", "Patient, practical guidance on where to put capital and how to protect it over time."],
+  ["Real Estate", "Acquisition, leasing, and property strategy grounded in local market knowledge."],
+  ["Financial Planning", "A clear plan for cash flow, growth, and the long game — reviewed as things change."],
+  ["Tax & Accounting", "Books kept clean and filings done right, with an eye on what you keep at year end."],
+  ["Business Consulting", "An outside perspective on the decisions that move the needle — pricing, hiring, expansion."],
+  ["Insurance Services", "Coverage matched to real risk, so a bad day never becomes a lasting setback."],
+  ["Startup Advisory", "From first idea to first customer — the practical steps that get a business off the ground."],
+  ["Community Support", "Guidance and connections for Nebraska's Bhutanese-American community and its businesses."],
 ] as const;
 
 function ServiceIcon({ index }: { index: number }) {
   const icons = [
-    <><path d="M4 19V9l8-5 8 5v10"/><path d="M8 19v-5h8v5M2 20h20"/></>,
-    <><path d="M9 3h6v5h5v6h-5v5H9v-5H4V8h5Z"/></>,
-    <><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2M14 11h2M8 15h2M14 15h2"/></>,
-    <><path d="m3 11 9-7 9 7"/><path d="M5 10v10h14V10M9 20v-6h6v6"/></>,
-    <><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></>,
-    <><path d="M4 7h16v11H4zM4 9l8 5 8-5"/><path d="M8 4h8"/></>,
-    <><path d="M5 3v8M3 3v5c0 2 4 2 4 0V3M5 11v10M15 3v18M15 3c4 2 5 7 0 10"/></>,
-    <><path d="M4 17V10M10 17V6M16 17V3M3 21h18"/><path d="m4 7 5-3 5 2 6-4"/></>,
-    <><path d="M3 5h2l2 11h10l3-7H6"/><circle cx="9" cy="20" r="1"/><circle cx="17" cy="20" r="1"/></>,
-    <><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9h3M14 9h3M7 13h10"/></>,
+    <g key="management"><path d="M32 10 58 30 32 50 6 30Z" /><path d="M6 30h52M32 10v40" /><circle cx="32" cy="30" r="1.6" fill="currentColor" stroke="none" /></g>,
+    <g key="investment"><path d="M14 46h36l-8-24H22Z" /><path d="M32 22v24M32 14v8" /><circle cx="32" cy="14" r="1.6" fill="currentColor" stroke="none" /></g>,
+    <g key="real-estate"><path d="M14 50 32 14 50 50Z" /><path d="M22 50V34h20v16" /></g>,
+    <g key="planning"><path d="M12 48h10V38h10V28h10V18" /><circle cx="42" cy="18" r="1.6" fill="currentColor" stroke="none" /></g>,
+    <g key="accounting"><rect x="18" y="12" width="28" height="40" rx="1.5" /><path d="M24 22h16M24 30h16M24 38h10" /></g>,
+    <g key="consulting"><circle cx="26" cy="32" r="14" /><circle cx="40" cy="32" r="14" /></g>,
+    <g key="insurance"><path d="M32 10 50 18v14c0 14-9 22-18 26-9-4-18-12-18-26V18Z" /></g>,
+    <g key="startup"><path d="M18 16 50 32 18 48Z" /><circle cx="24" cy="32" r="1.6" fill="currentColor" stroke="none" /></g>,
+    <g key="community"><circle cx="20" cy="44" r="4" /><circle cx="44" cy="44" r="4" /><circle cx="32" cy="18" r="4" /><path d="M23 41 29 22M41 41 35 22M24 44h16" /></g>,
   ];
 
-  return <span className="service-showcase__tab-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">{icons[index]}</svg></span>;
+  return (
+    <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      {icons[index]}
+    </svg>
+  );
 }
 
 export default function ServiceShowcase() {
-  const [active, setActive] = useState(0);
-  const service = serviceItems[active];
-
   return (
-    <div className="service-showcase" data-reveal>
-      <div className="service-showcase__tabs" role="tablist" aria-label="Services">
-        {serviceItems.map(([title], index) => (
-          <button
-            id={`service-tab-${index}`}
-            className={active === index ? "is-active" : ""}
-            type="button"
-            role="tab"
-            aria-selected={active === index}
-            aria-controls="service-panel"
-            onClick={() => setActive(index)}
-            key={title}
-          >
-            <ServiceIcon index={index} />
-            <strong>{title}</strong>
-            <i aria-hidden="true">→</i>
-          </button>
-        ))}
-      </div>
-
-      <div className="service-showcase__panel" id="service-panel" role="tabpanel" aria-labelledby={`service-tab-${active}`}>
-        <div className="service-showcase__copy" key={`copy-${service[0]}`}>
-          <p>Integrated expertise</p>
-          <h3>{service[0]}</h3>
-          <div className="service-showcase__rule" />
-          <p>{service[1]}</p>
-          <Link href="/services">Explore this service <span aria-hidden="true">↗</span></Link>
-        </div>
-        <div className="service-showcase__visual" aria-hidden="true" key={`visual-${service[0]}`}>
-          <div className="service-showcase__hub"><span>Selected service</span><strong>{service[0]}</strong></div>
-          <div className="service-showcase__spokes">
-            {service.slice(2).map((label, index) => <div className={`service-showcase__node service-showcase__node--${index + 1}`} key={label}><span>{index + 1}</span><small>{label}</small></div>)}
+    <div className="grid min-[900px]:grid-cols-3" data-reveal-group>
+      {serviceItems.map(([title, description], index) => (
+        <article
+          className="group flex min-h-0 flex-col gap-3.5 border-b border-portfolio-line py-8 transition-colors hover:bg-portfolio-paper min-[900px]:min-h-[340px] min-[900px]:border-r min-[900px]:px-10 min-[900px]:py-11 min-[900px]:nth-[3n]:border-r-0 min-[900px]:nth-[n+7]:border-b-0"
+          key={title}
+          data-reveal
+        >
+          <div className="flex items-baseline gap-3">
+            <span className="text-sm font-medium tracking-wide text-portfolio-accent">{String(index + 1).padStart(2, "0")}</span>
+            <h3 className="text-xl font-medium tracking-[-.02em] text-portfolio-ink">{title}</h3>
           </div>
-        </div>
-      </div>
+          <p className="max-w-[32ch] text-[15px] leading-normal text-portfolio-muted">{description}</p>
+          <span className="mt-2 size-16 text-portfolio-ink opacity-80 transition duration-300 group-hover:-translate-y-1 group-hover:text-portfolio-accent group-hover:opacity-100 min-[900px]:mt-auto min-[900px]:size-21">
+            <ServiceIcon index={index} />
+          </span>
+        </article>
+      ))}
     </div>
   );
 }

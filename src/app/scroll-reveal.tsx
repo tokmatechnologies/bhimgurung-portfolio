@@ -1,33 +1,60 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
-// Adds an "is-visible" class to any [data-reveal] element as it scrolls into view.
+let currentRun = 0;
+let stopCurrentRun: (() => void) | undefined;
+
 export default function ScrollReveal() {
-    useEffect(() => {
-        const targets = Array.from(document.querySelectorAll<HTMLElement>("[data-reveal]"));
-        if (!targets.length) return;
+  const pathname = usePathname();
 
-        if (typeof IntersectionObserver === "undefined") {
-            targets.forEach((el) => el.classList.add("is-visible"));
-            return;
-        }
+  useEffect(() => {
+    const run = ++currentRun;
+    stopCurrentRun?.();
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add("is-visible");
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
-        );
+    const root = document.documentElement;
+    const targets = Array.from(
+      document.querySelectorAll<HTMLElement>("[data-reveal]:not(.is-visible)")
+    );
+    const motionIsReady = root.classList.contains("reveal-ready");
+    root.classList.add("reveal-active");
 
-        targets.forEach((el) => observer.observe(el));
-        return () => observer.disconnect();
-    }, []);
+    const revealAll = () => {
+      targets.forEach((target) => target.classList.add("is-visible"));
+    };
 
-    return null;
+    if (
+      !motionIsReady ||
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      typeof IntersectionObserver === "undefined"
+    ) {
+      revealAll();
+      stopCurrentRun = () => {};
+    } else {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          });
+        },
+        { threshold: 0.15, rootMargin: "0px 0px -8% 0px" }
+      );
+
+      targets.forEach((target) => observer.observe(target));
+      stopCurrentRun = () => observer.disconnect();
+    }
+
+    return () => {
+      if (currentRun !== run) return;
+
+      stopCurrentRun?.();
+      stopCurrentRun = undefined;
+    };
+  }, [pathname]);
+
+  return null;
 }
