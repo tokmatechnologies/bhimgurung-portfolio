@@ -12,28 +12,28 @@ import {
 
 const teamMembers = [
   {
-    name: "Full Name",
-    role: "Operations Manager",
-    photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=800&fit=crop&crop=faces&q=80",
+    name: "Suman Pokhrel",
+    role: "Chief Finance Officer",
+    photo: "teams/suman-pokhrel.jpeg",
     bio: "Keeps day-to-day delivery on track — scheduling, vendors, and the operational detail that lets client work move without friction.",
   },
   {
-    name: "Full Name",
-    role: "Investment Advisor",
-    photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=800&fit=crop&crop=faces&q=80",
+    name: "Arjun Uprety",
+    role: "Chief Executive Officer at GMIC",
+    photo: "teams/Arjun-Uprety.jpeg",
     bio: "Works with owners on where to put capital and how to protect it, turning goals into a plan that holds up over time.",
   },
   {
-    name: "Full Name",
-    role: "Client Relations Lead",
-    photo: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=800&fit=crop&crop=faces&q=80",
-    bio: "The steady point of contact for every engagement, making sure questions get answered and nothing falls between the cracks.",
+    name: "Suman Pokhrel",
+    role: "Chief Finance Officer",
+    photo: "teams/suman-pokhrel.jpeg",
+    bio: "Keeps day-to-day delivery on track — scheduling, vendors, and the operational detail that lets client work move without friction.",
   },
   {
-    name: "Full Name",
-    role: "Community Outreach",
-    photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=800&fit=crop&crop=faces&q=80",
-    bio: "Connects the firm's work to Nebraska's Bhutanese-American community — events, partnerships, and the relationships behind them.",
+    name: "Arjun Uprety",
+    role: "Chief Executive Officer at GMIC",
+    photo: "teams/Arjun-Uprety.jpeg",
+    bio: "Works with owners on where to put capital and how to protect it, turning goals into a plan that holds up over time.",
   },
 ] as const;
 
@@ -142,7 +142,9 @@ export default function TeamSection() {
     const card = track.querySelector<HTMLElement>("[data-team-card]");
     const gap = Number.parseFloat(getComputedStyle(track).columnGap) || 20;
     const distance = card ? card.offsetWidth + gap : track.clientWidth * 0.8;
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     track.scrollBy({
       left: direction * distance,
@@ -164,25 +166,25 @@ export default function TeamSection() {
   };
 
   return (
-    <section className="scroll-mt-16 overflow-hidden bg-white py-portfolio-section text-portfolio-muted" id="team">
+    <section
+      className="scroll-mt-16 overflow-hidden bg-white py-portfolio-section text-portfolio-muted"
+      id="team"
+    >
       <div className="portfolio-container">
         <div className="section-heading" data-reveal-group>
-          <p
-            className="eyebrow"
-            data-reveal
-          >
+          <p className="eyebrow" data-reveal>
             Team
           </p>
-          <h2
-            className="section-title max-w-[28ch]"
-            data-reveal
-          >
+          <h2 className="section-title max-w-[28ch]" data-reveal>
             A hands-on team across{" "}
-            <em className="font-medium">management, investment &amp; community</em>.
+            <em className="font-medium">
+              management, investment &amp; community
+            </em>
+            .
           </h2>
           <p className="max-w-[56ch] text-[17px] leading-relaxed" data-reveal>
-            Bringing operational, financial, and community experience to every client
-            relationship. Hover a card for more.
+            Bringing operational, financial, and community experience to every
+            client relationship. Hover a card for more.
           </p>
         </div>
 
@@ -206,7 +208,11 @@ export default function TeamSection() {
                   data-team-card
                   className="relative h-93 basis-4/5 shrink-0 snap-start overflow-hidden border border-portfolio-line bg-portfolio-paper sm:basis-65 lg:h-100 lg:basis-75"
                   onMouseEnter={() => setOpenCard(index)}
-                  onMouseLeave={() => setOpenCard((current) => current === index ? null : current)}
+                  onMouseLeave={() =>
+                    setOpenCard((current) =>
+                      current === index ? null : current,
+                    )
+                  }
                 >
                   <Image
                     src={member.photo}
@@ -228,13 +234,15 @@ export default function TeamSection() {
                     }`}
                     aria-hidden={!isOpen}
                   >
-                    <p className="text-sm leading-[1.6] text-white/95">{member.bio}</p>
+                    <p className="text-sm leading-[1.6] text-white/95">
+                      {member.bio}
+                    </p>
                   </div>
 
-                  <div
-                    className="absolute inset-x-6 bottom-6 z-10 flex flex-col gap-1 text-white"
-                  >
-                    <span className="text-lg font-medium tracking-tight">{member.name}</span>
+                  <div className="absolute inset-x-6 bottom-6 z-10 flex flex-col gap-1 text-white">
+                    <span className="text-lg font-medium tracking-tight">
+                      {member.name}
+                    </span>
                     <span className="text-[12.5px] font-medium tracking-[.04em] text-white/70 uppercase">
                       {member.role}
                     </span>
@@ -242,9 +250,7 @@ export default function TeamSection() {
 
                   <span
                     className={`pointer-events-none absolute top-5 right-5 z-10 grid size-9 place-items-center text-2xl leading-none transition-transform duration-300 motion-reduce:transition-none ${
-                      isOpen
-                        ? "rotate-45 text-white"
-                        : "text-portfolio-ink"
+                      isOpen ? "rotate-45 text-white" : "text-portfolio-ink"
                     }`}
                     aria-hidden="true"
                   >
@@ -259,7 +265,8 @@ export default function TeamSection() {
                     onClick={() => setOpenCard(isOpen ? null : index)}
                   >
                     <span className="sr-only">
-                      {member.name} — {member.role}. {isOpen ? "Hide bio" : "Show bio"}
+                      {member.name} — {member.role}.{" "}
+                      {isOpen ? "Hide bio" : "Show bio"}
                     </span>
                   </button>
                 </article>
