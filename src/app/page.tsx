@@ -18,11 +18,10 @@ const ventureImages = [
   { src: "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?auto=format&fit=crop&w=900&q=82", credit: "CHUTTERSNAP", href: "https://unsplash.com/photos/BNBA1h-NgdY" },
   { src: "https://images.unsplash.com/flagged/photo-1558954157-aa76c0d246c6?auto=format&fit=crop&w=900&q=82", credit: "Precondo CA", href: "https://unsplash.com/photos/QHDFm084RNk" },
   { src: "https://images.unsplash.com/photo-1666887360680-9dc27a1d2753?auto=format&fit=crop&w=900&q=82", credit: "Nappy", href: "https://unsplash.com/photos/dcBO4nt4MRE" },
-  { src: "https://images.unsplash.com/photo-1666887360680-9dc27a1d2753?auto=format&fit=crop&w=900&q=82", credit: "Nappy", href: "https://unsplash.com/photos/dcBO4nt4MRE" },
+  { src: "/great-events-center-img.jpeg", credit: "Great Events Center", href: "#" },
   { src: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=900&q=82", credit: "Al Elmes", href: "https://unsplash.com/photos/ULHxWq8reao" },
   { src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=82", credit: "Dylan Gillis", href: "https://unsplash.com/photos/KdeqA3aTnBY" },
-  { src: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=900&q=82", credit: "Dylan Gillis", href: "https://unsplash.com/photos/KdeqA3aTnBY" },
-  { src: "https://images.unsplash.com/photo-1667388969250-1c7220bf3f37?auto=format&fit=crop&w=900&q=82", credit: "Glenov Brankovic", href: "https://unsplash.com/photos/e4B5AvA7Jqo" },
+  { src: "/great-events-restaurant.jpeg", credit: "Great Event Hangout Restaurant & Bar", href: "#" },
 ] as const;
 
 const processSteps = [
