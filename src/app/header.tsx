@@ -18,13 +18,14 @@ const navItems = [
 const navLink =
   "text-[15px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-portfolio-accent focus-visible:ring-offset-4";
 
-function ContactIcon({ type }: { type: "location" | "email" | "phone" | "globe" | "linkedin" }) {
+function ContactIcon({ type }: { type: "location" | "email" | "phone" | "facebook" | "linkedin" | "whatsapp" }) {
   const paths = {
     location: <><path d="M12 21s-6-5.7-6-12a6 6 0 1 1 12 0c0 6.3-6 12-6 12Z" /><circle cx="12" cy="9" r="2" /></>,
     email: <><rect x="3" y="5" width="18" height="14" rx="1" /><path d="m4 7 8 6 8-6" /></>,
     phone: <path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-1-1.5 3a15.5 15.5 0 0 1-9.5-9.5L8 8 7 3Z" />,
-    globe: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c3.5 3.8 3.5 14.2 0 18M12 3c-3.5 3.8-3.5 14.2 0 18" /></>,
+    facebook: <path d="M14 8h2V4.5A16 16 0 0 0 13.7 4C10.7 4 9 5.8 9 9v2H6v4h3v5h4v-5h3l.5-4H13V9.4c0-.9.3-1.4 1-1.4Z" />,
     linkedin: <><path d="M6 9v9M6 6v.01M10 18v-5a4 4 0 0 1 8 0v5M10 9v9" /></>,
+    whatsapp: <><path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z" /><path d="M8.5 8.5c.2-.4.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.2.1.4-.1.6l-.6.7c.7 1.2 1.6 2.1 2.8 2.8l.7-.6c.2-.2.4-.2.6-.1l1.7.7c.3.1.4.3.4.5v.5c0 .3-.1.5-.5.7-.5.2-1.1.3-1.7.1-2.1-.6-4.8-3.3-5.4-5.4-.2-.6-.1-1.2.1-1.7Z" /></>,
   };
 
   return <svg className="size-[18px] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[type]}</svg>;
@@ -55,8 +56,9 @@ export default function Header({ solid = false }: { solid?: boolean }) {
               <span className="truncate">{contact.address}</span>
             </a>
             <span className="hidden h-8 w-px bg-white/30 sm:block" aria-hidden="true" />
-            <a className="hidden transition-opacity hover:opacity-70 sm:block" href={socialLinks[0].href} target="_blank" rel="noreferrer" aria-label="Bhim Gurung on LinkedIn"><ContactIcon type="linkedin" /></a>
-            <a className="hidden transition-opacity hover:opacity-70 sm:block" href="https://www.gbmic360.com" target="_blank" rel="noreferrer" aria-label="Visit GBMIC"><ContactIcon type="globe" /></a>
+            <a className="hidden transition-opacity hover:opacity-70 sm:block" href={socialLinks[0].href} target="_blank" rel="noreferrer" aria-label="Bhim Gurung on Facebook"><ContactIcon type="facebook" /></a>
+            <a className="hidden transition-opacity hover:opacity-70 sm:block" href={socialLinks[1].href} target="_blank" rel="noreferrer" aria-label="Bhim Gurung on LinkedIn"><ContactIcon type="linkedin" /></a>
+            <a className="hidden transition-opacity hover:opacity-70 sm:block" href={socialLinks[2].href} target="_blank" rel="noreferrer" aria-label="Message Bhim Gurung on WhatsApp"><ContactIcon type="whatsapp" /></a>
           </div>
           <div className="flex shrink-0 items-center gap-6 md:gap-9">
             <a className="hidden items-center gap-2.5 transition-opacity hover:opacity-75 md:flex" href={`mailto:${contact.email}`}><ContactIcon type="email" /><span>{contact.email}</span></a>

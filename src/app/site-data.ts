@@ -45,12 +45,14 @@ export const ventures = [
 export const contact = {
   phoneDisplay: "(402) 312-1435",
   phoneHref: "tel:+14023121435",
+  whatsappHref: "https://wa.me/14023121435",
   fax: "(402) 885-895",
   email: "contact@bhimgurung.com",
   address: "7440 Crown Point Ave, Omaha, NE 68134",
 };
 
 export const socialLinks = [
+  { label: "Facebook", href: "https://www.facebook.com/bhimgurunggod2025" },
   { label: "LinkedIn", href: "https://www.linkedin.com/in/bhim-gurung-78795288" },
-  { label: "GBMIC360", href: "https://www.gbmic360.com" },
+  { label: "WhatsApp", href: contact.whatsappHref },
 ] as const;
