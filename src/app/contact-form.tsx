@@ -15,6 +15,7 @@ type FieldErrors = Partial<Record<FieldName, string>>;
 export default function ContactForm({ compact = false }: { compact?: boolean }) {
   const [feedback, setFeedback] = useState<Feedback | null>(null);
   const [errors, setErrors] = useState<FieldErrors>({});
+  const [isSending, setIsSending] = useState(false);
 
   const fieldClass = compact
     ? "flex flex-col gap-2 text-sm font-normal tracking-[.01em] text-portfolio-dark-muted"
@@ -39,7 +40,7 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
     setFeedback(null);
   }
 
-  function submit(event: FormEvent<HTMLFormElement>) {
+  async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -82,16 +83,37 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
     }
 
     setErrors({});
-    const subject = encodeURIComponent(`Website inquiry from ${name}`);
-    const phoneLine = phone ? `\nPhone: ${phone}` : "";
-    const body = encodeURIComponent(
-      `Name: ${name}${phoneLine}\nEmail: ${email}\n\n${message}`,
-    );
-    setFeedback({
-      type: "success",
-      message: "Your email app is opening with your message ready to send.",
-    });
-    window.location.href = `mailto:contact@bhimgurung.com?subject=${subject}&body=${body}`;
+    setFeedback(null);
+    setIsSending(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, phone, message, company: value("company") }),
+      });
+      const result = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        throw new Error(result.error || "Your message could not be sent.");
+      }
+
+      form.reset();
+      setFeedback({
+        type: "success",
+        message: "Thanks — your message has been sent.",
+      });
+    } catch (error) {
+      setFeedback({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Your message could not be sent. Please try again.",
+      });
+    } finally {
+      setIsSending(false);
+    }
   }
 
   return (
@@ -237,9 +259,10 @@ export default function ContactForm({ compact = false }: { compact?: boolean }) 
             ? "mt-1.5 inline-flex h-[46px] w-fit items-center justify-center bg-portfolio-accent px-6 text-[15px] font-medium tracking-[-.01em] text-white transition duration-300 hover:-translate-y-0.5 hover:bg-portfolio-accent-strong hover:shadow-portfolio-hover active:translate-y-0"
             : "inline-flex min-h-12 w-fit items-center justify-center gap-2 rounded-portfolio-pill bg-portfolio-ink px-7 font-medium text-white transition hover:-translate-y-0.5 hover:bg-portfolio-accent max-sm:w-full"
         }
+        disabled={isSending}
         type="submit"
       >
-        {compact ? "Send message" : "Send inquiry"}
+        {isSending ? "Sending…" : compact ? "Send message" : "Send inquiry"}
         {!compact && <span aria-hidden="true">↗</span>}
       </button>
       {(compact || feedback) && (
