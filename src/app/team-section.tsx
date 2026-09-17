@@ -14,14 +14,68 @@ const teamMembers = [
   {
     name: "Suman Pokhrel",
     role: "Chief Finance Officer",
-    photo: "teams/suman-pokhrel.jpeg",
+    photo: "/teams/suman-pokhrel.jpeg",
     bio: "Oversees financial planning, budgeting, investments, and overall financial management in Dubai, supporting sustainable growth and informed business decisions.",
   },
   {
     name: "Arjun Uprety",
     role: "Chief Executive Officer at GMIC",
-    photo: "teams/Arjun-Uprety.jpeg",
+    photo: "/teams/Arjun-Uprety.jpeg",
     bio: "Leads the overall strategy, business development, investment initiatives, and operations of Global Business Management and Investment Company Nepal (GMIC Nepal), focusing on growth opportunities and strategic partnerships.",
+  },
+  {
+    name: "Adesh Sangroula",
+    role: "Secretary to Bhim Sir",
+    photo: "/teams/adesh.jpeg",
+    bio: "Provides trusted executive support to Bhim Gurung, coordinating strategic priorities, high-level communications, engagements, and daily operations with professionalism and discretion.",
+  },
+  {
+    name: "Binita Neupane",
+    role: "Realtor",
+    photo: "/teams/2.jpg",
+    bio: "Supports clients throughout the real-estate process, helping them explore opportunities and make informed property decisions.",
+  },
+  {
+    name: "Muna Basnet",
+    role: "Realtor",
+    photo: "/teams/3.jpg",
+    bio: "Works closely with buyers, sellers, and investors to provide attentive guidance across their real-estate needs.",
+  },
+  {
+    name: "Yamuna Achariya",
+    role: "Accountant at GMAS",
+    photo: "/teams/4.jpg",
+    bio: "Supports accurate financial records, reporting, and day-to-day accounting operations at GMAS.",
+  },
+  {
+    name: "Yubaraj Katuwal",
+    role: "CEO of Realty Karma Nepal",
+    photo: "/teams/5.jpg",
+    bio: "Leads Realty Karma Nepal with a focus on real-estate growth, client relationships, and new property opportunities.",
+  },
+  {
+    name: "Khagendra Khusi",
+    role: "Nepali Sahitya News Editor",
+    photo: "/teams/6.jpg",
+    bio: "Guides editorial work for Nepali Sahitya, helping shape and present literary and community-focused content.",
+  },
+  {
+    name: "Sahil Kafle",
+    role: "Senior Video Editor at E-Global",
+    photo: "/teams/7.jpg",
+    bio: "Leads video post-production at E-Global, shaping visual stories through thoughtful editing and creative execution.",
+  },
+  {
+    name: "Binam Pokhrel",
+    role: "Senior Accountant at GMAS",
+    photo: "/teams/9.jpg",
+    bio: "Oversees accounting workflows and supports dependable financial reporting and recordkeeping at GMAS.",
+  },
+  {
+    name: "Bidya Rasaily",
+    role: "Receptionist / Realtor",
+    photo: "/teams/11.png",
+    bio: "Welcomes clients, coordinates inquiries, and supports smooth communication across the real-estate team.",
   },
 ] as const;
 
@@ -207,7 +261,8 @@ export default function TeamSection() {
                     alt=""
                     fill
                     sizes="(max-width: 560px) 82vw, 300px"
-                    className="object-cover object-top  contrast-[1.03]"
+                    quality={90}
+                    className="object-cover object-top"
                   />
 
                   <div
@@ -217,9 +272,8 @@ export default function TeamSection() {
 
                   <div
                     id={bioId}
-                    className={`absolute inset-0 flex items-end bg-portfolio-accent/50 p-6 pb-24 text-white backdrop-blur-md transition-opacity duration-400 motion-reduce:transition-none ${
-                      isOpen ? "opacity-100" : "pointer-events-none opacity-0"
-                    }`}
+                    className={`absolute inset-0 flex items-end bg-portfolio-accent/50 p-6 pb-24 text-white backdrop-blur-md transition-opacity duration-400 motion-reduce:transition-none ${isOpen ? "opacity-100" : "pointer-events-none opacity-0"
+                      }`}
                     aria-hidden={!isOpen}
                   >
                     <p className="text-sm leading-[1.6] text-white/95">
@@ -237,9 +291,8 @@ export default function TeamSection() {
                   </div>
 
                   <span
-                    className={`pointer-events-none absolute top-5 right-5 z-10 grid size-9 place-items-center text-2xl leading-none transition-transform duration-300 motion-reduce:transition-none ${
-                      isOpen ? "rotate-45 text-white" : "text-portfolio-ink"
-                    }`}
+                    className={`pointer-events-none absolute top-5 right-5 z-10 grid size-9 place-items-center text-2xl leading-none transition-transform duration-300 motion-reduce:transition-none ${isOpen ? "rotate-45 text-white" : "text-portfolio-ink"
+                      }`}
                     aria-hidden="true"
                   >
                     +
