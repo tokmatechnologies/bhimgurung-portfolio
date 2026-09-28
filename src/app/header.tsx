@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import { contact, socialLinks } from "./site-data";
 
 const navItems = [
-  ["About", "/#about"],
+  ["About", "/about"],
   ["Full bio", "/about"],
   ["Team", "/#team"],
   ["Services", "/#services"],
