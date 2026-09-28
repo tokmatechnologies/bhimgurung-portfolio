@@ -214,19 +214,29 @@ export default function TeamSection() {
     >
       <div className="portfolio-container">
         <div className="section-heading" data-reveal-group>
-          <p className="eyebrow" data-reveal>
-            Team
-          </p>
-          <h2 className="section-title max-w-[28ch]" data-reveal>
-            A hands-on team across{" "}
-            <em className="font-medium">
-              management, investment &amp; community
-            </em>
-            .
-          </h2>
-          <p className="max-w-[56ch] text-[17px] leading-relaxed" data-reveal>
+          <div className="flex items-start justify-between gap-6">
+            <div>
+              <p className="eyebrow mb-2" data-reveal>
+                Team
+              </p>
+              <h2 className="section-title max-w-[36ch] leading-tight" data-reveal>
+                A hands-on team across
+                <em className="font-medium"> management, investment &amp; community</em>.
+              </h2>
+            </div>
+
+            <div className="ml-auto hidden min-w-[240px] items-center gap-3 rounded-lg bg-portfolio-accent/6 p-3 pr-4 text-sm text-portfolio-muted sm:flex">
+              <div className="h-10 w-10 shrink-0 rounded-md bg-gradient-to-br from-portfolio-accent to-portfolio-ink/70" aria-hidden="true" />
+              <div>
+                <strong className="block text-portfolio-ink">Our people-first approach</strong>
+                <span className="block text-xs text-portfolio-muted">Experienced across operations, finance and community work.</span>
+              </div>
+            </div>
+          </div>
+
+          <p className="mt-4 max-w-[56ch] text-[17px] leading-relaxed opacity-90" data-reveal>
             Bringing operational, financial, and community experience to every
-            client relationship. Hover a card for more.
+            client relationship. Hover or tap a card for more details.
           </p>
         </div>
 

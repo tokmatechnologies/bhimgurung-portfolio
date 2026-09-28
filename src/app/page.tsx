@@ -61,29 +61,104 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="scroll-mt-16 bg-white py-portfolio-section" id="about">
-          <div className="portfolio-container grid items-start gap-x-20 gap-y-8 min-[900px]:grid-cols-[200px_1fr]">
-            <p className="eyebrow pt-2" data-reveal>About</p>
-            <div className="flex flex-col gap-7" data-reveal-group>
-              <h2 className="section-title max-w-[26ch]" data-reveal>Two decades of leadership across business, investment, and community.</h2>
-              <p className="max-w-[54ch] text-[19px] leading-[1.55] text-portfolio-muted" data-reveal>Bhim Gurung leads GBMIC with a simple belief: sound management and patient investment build businesses that last. Alongside his work with clients, he is a trusted voice in Nebraska&apos;s Bhutanese-American community — connecting people to opportunity and helping them find their footing.</p>
-            </div>
-            <div className="border-t border-portfolio-line pt-2 min-[900px]:col-start-2" data-reveal-group>
-              <div className="grid min-[560px]:grid-cols-3 min-[560px]:gap-5">
-                {[["20+", "Years leading businesses"], ["9", "Service areas under one roof"], ["100%", "Focused on your outcome"]].map(([value, label]) => <div className="border-b border-portfolio-line py-5 min-[560px]:border-0 min-[560px]:pt-7" key={label} data-reveal><strong className="block text-[clamp(40px,5vw,56px)] leading-none font-medium tracking-[-.04em] text-portfolio-ink">{value}</strong><span className="mt-2 block max-w-[20ch] text-[15px] text-portfolio-muted">{label}</span></div>)}
+        <section className="scroll-mt-16 overflow-hidden bg-white py-portfolio-section" id="about">
+          <div className="portfolio-container">
+            <div className="grid gap-10 min-[940px]:grid-cols-[minmax(390px,.82fr)_minmax(0,1fr)] min-[940px]:items-stretch min-[940px]:gap-16">
+              <div className="relative min-[940px]:order-first" data-reveal-group>
+                <div className="absolute -top-6 -right-6 hidden h-28 w-28 border-t border-r border-portfolio-accent min-[940px]:block" aria-hidden="true" />
+                <div className="absolute -bottom-6 -left-6 hidden h-28 w-28 border-b border-l border-portfolio-accent min-[940px]:block" aria-hidden="true" />
+                <div className="group relative min-h-[420px] overflow-hidden bg-portfolio-paper shadow-portfolio-hover min-[760px]:min-h-[540px] min-[940px]:h-full" data-reveal>
+                  <Image src="/services-featured-boardroom.png" alt="Modern boardroom prepared for a business strategy meeting" fill sizes="(max-width: 940px) 100vw, 40vw" className="object-cover object-center transition duration-700 group-hover:scale-[1.025]" />
+                  <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,17,17,0)_45%,rgba(17,17,17,.78))]" />
+                  <div className="absolute top-6 right-6 bg-white/95 px-5 py-4 shadow-portfolio backdrop-blur min-[760px]:top-8 min-[760px]:right-8">
+                    <p className="text-[12px] font-medium uppercase tracking-[.12em] text-portfolio-muted">Advisory focus</p>
+                    <p className="mt-1 text-[28px] leading-none font-medium tracking-[-.04em] text-portfolio-accent">9</p>
+                    <p className="mt-1 text-sm leading-snug text-portfolio-muted">service areas connected</p>
+                  </div>
+                  <div className="absolute inset-x-5 bottom-5 bg-portfolio-ink/92 p-6 text-white shadow-portfolio min-[760px]:inset-x-8 min-[760px]:bottom-8 min-[760px]:p-7">
+                    <div className="mb-5 h-px w-12 bg-portfolio-accent" />
+                    <p className="text-sm font-medium uppercase tracking-[.1em] text-white/60">Leadership style</p>
+                    <p className="mt-3 max-w-[34ch] text-[24px] leading-[1.12] font-medium tracking-[-.03em]">
+                      Clear strategy, steady execution, and personal guidance for every client relationship.
+                    </p>
+                    <p className="mt-5 text-[15px] leading-relaxed text-white/68">
+                      Business management, investment strategy, operations, and community-focused growth.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex flex-col justify-between border-y border-portfolio-line py-8 min-[760px]:py-12" data-reveal-group>
+                <div>
+                  <p className="eyebrow" data-reveal>About Bhim Gurung</p>
+                  <h2 className="mt-5 max-w-[13ch] text-[clamp(40px,6.4vw,76px)] leading-[.98] font-medium tracking-[-.045em] text-portfolio-ink" data-reveal>
+                    Built on trust. Driven by action.
+                  </h2>
+                </div>
+
+                <div className="mt-10 grid gap-8 min-[760px]:grid-cols-[minmax(0,1fr)_220px] min-[760px]:items-end">
+                  <p className="max-w-[58ch] text-[18px] leading-[1.65] text-portfolio-muted" data-reveal>
+                    Bhim Gurung leads GBMIC with a simple belief: sound management and patient investment build businesses that last. Alongside his work with clients, he is a trusted voice in Nebraska&apos;s Bhutanese-American community, connecting people to opportunity and helping them find their footing.
+                  </p>
+
+                  <Link className="reference-button w-fit bg-portfolio-ink text-white hover:bg-portfolio-accent" href="/about" data-reveal>
+                    Read full story
+                  </Link>
+                </div>
+
+                <div className="mt-10 grid border-t border-portfolio-line pt-6 sm:grid-cols-3" data-reveal>
+                  {[["20+", "Years leading businesses"], ["9", "Service areas under one roof"], ["500+", "Clients served in one year"]].map(([value, label], index) => (
+                    <div className={`border-portfolio-line py-5 sm:px-6 ${index === 0 ? "sm:pl-0" : "border-t sm:border-t-0 sm:border-l"}`} key={String(label)}>
+                      <strong className="block stat-value text-[clamp(36px,5vw,58px)] leading-none font-medium tracking-[-.04em] text-portfolio-ink">{value}</strong>
+                      <span className="mt-3 block max-w-[18ch] text-[15px] leading-snug text-portfolio-muted">{label}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
         </section>
 
         <section className="scroll-mt-16 bg-portfolio-paper py-portfolio-section" id="ventures">
-          <div className="portfolio-container grid items-start gap-10 min-[900px]:grid-cols-[minmax(0,320px)_1fr] min-[900px]:gap-18">
-            <header className="flex flex-col gap-5 min-[900px]:sticky min-[900px]:top-24" data-reveal-group><p className="eyebrow" data-reveal>Business &amp; Entrepreneurship</p><h2 className="section-title max-w-[20ch]" data-reveal>A connected portfolio built around service.</h2><p className="text-[17px] leading-relaxed text-portfolio-muted" data-reveal>Bhim&apos;s ventures bring together investment, technology, culture, health care, and community organizations.</p></header>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal-group>
+          <div className="portfolio-container">
+            <header className="mb-12 grid items-end gap-6 border-b border-portfolio-line pb-8 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(280px,420px)]" data-reveal-group>
+              <div>
+                <p className="eyebrow" data-reveal>Business &amp; Entrepreneurship</p>
+                <h2 className="section-title mt-5 max-w-[18ch]" data-reveal>A connected portfolio built around service.</h2>
+              </div>
+              <p className="text-[17px] leading-relaxed text-portfolio-muted" data-reveal>Bhim&apos;s ventures bring together investment, technology, culture, health care, and community organizations.</p>
+            </header>
+            <div className="grid gap-4 min-[760px]:grid-cols-2" data-reveal-group>
               {ventures.filter(([title]) => title !== "United Homes").map(([title, description], index) => {
                 const image = ventureImages[index];
 
-                return <article className="group border border-portfolio-line bg-white transition duration-300 hover:-translate-y-1 hover:border-portfolio-accent hover:shadow-portfolio-hover" key={title} data-reveal><div className="relative aspect-[16/10] overflow-hidden"><Image src={image.src} alt="" fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" className="object-cover grayscale-[.15] transition duration-500 group-hover:scale-[1.03] group-hover:grayscale-0" /><a className="absolute right-1.5 bottom-1.5 bg-black/55 px-1.5 py-1 text-[8px] leading-none text-white/80 transition hover:bg-black/75 hover:text-white" href={image.href} target="_blank" rel="noreferrer">Photo: {image.credit} / Unsplash</a></div><div className="p-6"><span className="text-sm font-medium tracking-[.04em] text-portfolio-accent">{String(index + 1).padStart(2, "0")}</span><h3 className="mt-5 text-[15.5px] leading-[1.35] font-medium tracking-[-.01em] text-portfolio-ink">{title}</h3><p className="mt-3 text-[15px] leading-[1.65] text-portfolio-muted">{description}</p></div></article>;
+                return (
+                  <article className={`group relative min-h-[380px] overflow-hidden bg-portfolio-ink shadow-portfolio transition duration-300 hover:-translate-y-1 hover:shadow-portfolio-hover ${index === 0 ? "min-[760px]:col-span-2 min-[760px]:min-h-[500px]" : ""}`} key={title} data-reveal>
+                    <Image src={image.src} alt="" fill sizes={index === 0 ? "(max-width: 760px) 100vw, 78rem" : "(max-width: 760px) 100vw, 39rem"} className="object-cover object-center opacity-90 transition duration-700 group-hover:scale-[1.045] group-hover:opacity-100" />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,10,12,.42)_0%,rgba(8,10,12,.18)_42%,rgba(8,10,12,.82)_100%)] transition duration-500 group-hover:bg-[linear-gradient(180deg,rgba(8,10,12,.3)_0%,rgba(8,10,12,.16)_42%,rgba(8,10,12,.86)_100%)]" />
+                    <div className="absolute inset-0 border border-white/10 transition duration-300 group-hover:border-portfolio-accent/70" />
+                    <div className="absolute inset-x-4 top-4 overflow-hidden border border-white/22 bg-white/[.07] p-5 text-white shadow-portfolio backdrop-blur-[2px] transition duration-300 before:absolute before:inset-0 before:bg-[linear-gradient(135deg,rgba(17,17,17,.42),rgba(17,17,17,.14)_55%,rgba(214,32,36,.18))] before:opacity-85 group-hover:bg-white/[.1] group-hover:before:opacity-70 min-[760px]:inset-x-6 min-[760px]:top-6 min-[760px]:p-6">
+                      <div className="relative">
+                      <div className="mb-4 flex items-center gap-4">
+                        <span className="text-sm font-medium tracking-[.08em] text-portfolio-accent">{String(index + 1).padStart(2, "0")}</span>
+                        <span className="h-px flex-1 bg-white/30" aria-hidden="true" />
+                        <span className="text-[11px] font-medium uppercase tracking-[.12em] text-white/72 drop-shadow">GBMIC Network</span>
+                      </div>
+                      <h3 className="max-w-[24ch] text-[clamp(22px,3vw,34px)] leading-[1.05] font-medium tracking-[-.03em] drop-shadow-[0_2px_12px_rgba(0,0,0,.45)]">{title}</h3>
+                      <p className="mt-4 max-w-[50ch] text-[15.5px] leading-relaxed text-white/86 drop-shadow-[0_1px_8px_rgba(0,0,0,.5)]">{description}</p>
+                      </div>
+                    </div>
+                    <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-4 text-white min-[760px]:inset-x-6 min-[760px]:bottom-6">
+                      <span className="inline-flex min-h-10 items-center bg-portfolio-accent px-4 text-[13px] font-medium tracking-[-.01em] shadow-portfolio transition duration-300 group-hover:bg-white group-hover:text-portfolio-ink">
+                        Explore More
+                      </span>
+                      <span className="grid size-11 place-items-center border border-white/35 bg-white/10 text-[22px] leading-none backdrop-blur transition duration-300 group-hover:border-white group-hover:bg-white group-hover:text-portfolio-ink" aria-hidden="true">
+                        +
+                      </span>
+                    </div>
+                    <a className="absolute right-3 bottom-18 bg-black/45 px-2 py-1 text-[9px] leading-none text-white/70 transition hover:bg-black/70 hover:text-white" href={image.href} target="_blank" rel="noreferrer">Photo: {image.credit} / Unsplash</a>
+                  </article>
+                );
               })}
             </div>
           </div>

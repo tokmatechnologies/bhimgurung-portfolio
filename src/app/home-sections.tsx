@@ -126,14 +126,11 @@ const testimonials = [
 export function AffiliationsSection() {
   return (
     <section
-      className="bg-portfolio-paper py-portfolio-section"
+      className="bg-portfolio-paper pt-8 pb-portfolio-section min-[760px]:pt-10"
       id="affiliations"
     >
       <div className="portfolio-container">
-        <header
-          className="section-heading items-center text-center"
-          data-reveal-group
-        >
+        <header className="section-heading" data-reveal-group>
           <p className="eyebrow" data-reveal>
             Affiliations
           </p>
@@ -275,17 +272,14 @@ export function TestimonialsSection() {
       id="testimonials"
     >
       <div className="portfolio-container">
-        <header
-          className="section-heading items-center text-center"
-          data-reveal-group
-        >
+        <header className="section-heading" data-reveal-group>
           <p className="eyebrow" data-reveal>
             Testimonials
           </p>
           <h2 className="section-title max-w-[22ch]" data-reveal>
             What our clients say.
           </h2>
-          <p className="text-[17px] text-portfolio-muted" data-reveal>
+          <p className="max-w-[36ch] text-[17px] text-portfolio-muted" data-reveal>
             Real feedback, real results, real people.
           </p>
         </header>
