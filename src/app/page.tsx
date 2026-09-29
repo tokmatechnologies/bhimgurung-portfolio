@@ -120,43 +120,44 @@ export default function Home() {
         </section>
 
         <section className="scroll-mt-16 bg-portfolio-paper py-portfolio-section" id="ventures">
-          <div className="portfolio-container">
-            <header className="mb-12 grid items-end gap-6 border-b border-portfolio-line pb-8 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(280px,420px)]" data-reveal-group>
+          <div className="w-full">
+            <header className="grid items-end gap-6 border-y border-portfolio-line bg-white px-5 py-10 min-[760px]:px-10 min-[900px]:grid-cols-[minmax(0,1fr)_minmax(280px,480px)] min-[1200px]:px-14" data-reveal-group>
               <div>
                 <p className="eyebrow" data-reveal>Business &amp; Entrepreneurship</p>
                 <h2 className="section-title mt-5 max-w-[18ch]" data-reveal>A connected portfolio built around service.</h2>
               </div>
-              <p className="text-[17px] leading-relaxed text-portfolio-muted" data-reveal>Bhim&apos;s ventures bring together investment, technology, culture, health care, and community organizations.</p>
+              <p className="max-w-[54ch] text-[17px] leading-relaxed text-portfolio-muted min-[900px]:justify-self-end" data-reveal>Bhim&apos;s ventures bring together investment, technology, culture, health care, and community organizations.</p>
             </header>
-            <div className="grid gap-4 min-[760px]:grid-cols-2" data-reveal-group>
+            <div className="grid gap-px bg-portfolio-line p-px min-[760px]:grid-cols-2 min-[1120px]:grid-cols-3" data-reveal-group>
               {ventures.filter(([title]) => title !== "United Homes").map(([title, description], index) => {
                 const image = ventureImages[index];
 
                 return (
-                  <article className={`group relative min-h-[380px] overflow-hidden bg-portfolio-ink shadow-portfolio transition duration-300 hover:-translate-y-1 hover:shadow-portfolio-hover ${index === 0 ? "min-[760px]:col-span-2 min-[760px]:min-h-[500px]" : ""}`} key={title} data-reveal>
-                    <Image src={image.src} alt="" fill sizes={index === 0 ? "(max-width: 760px) 100vw, 78rem" : "(max-width: 760px) 100vw, 39rem"} className="object-cover object-center opacity-90 transition duration-700 group-hover:scale-[1.045] group-hover:opacity-100" />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,10,12,.42)_0%,rgba(8,10,12,.18)_42%,rgba(8,10,12,.82)_100%)] transition duration-500 group-hover:bg-[linear-gradient(180deg,rgba(8,10,12,.3)_0%,rgba(8,10,12,.16)_42%,rgba(8,10,12,.86)_100%)]" />
-                    <div className="absolute inset-0 border border-white/10 transition duration-300 group-hover:border-portfolio-accent/70" />
-                    <div className="absolute inset-x-4 top-4 overflow-hidden border border-white/22 bg-white/[.07] p-5 text-white shadow-portfolio backdrop-blur-[2px] transition duration-300 before:absolute before:inset-0 before:bg-[linear-gradient(135deg,rgba(17,17,17,.42),rgba(17,17,17,.14)_55%,rgba(214,32,36,.18))] before:opacity-85 group-hover:bg-white/[.1] group-hover:before:opacity-70 min-[760px]:inset-x-6 min-[760px]:top-6 min-[760px]:p-6">
+                  <article className="group relative min-h-[420px] overflow-hidden bg-white transition duration-300 min-[1120px]:min-h-[520px]" key={title} data-reveal>
+                    <Image src={image.src} alt="" fill sizes="(max-width: 760px) 100vw, (max-width: 1120px) 50vw, 33vw" className="object-cover object-center opacity-100 brightness-[.92] saturate-[.9] transition duration-700 group-hover:scale-[1.045] group-hover:brightness-[1.08] group-hover:saturate-[1.04]" />
+                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(25,54,92,.62)_0%,rgba(25,54,92,.5)_42%,rgba(25,54,92,.72)_100%)] transition duration-500 group-hover:bg-[linear-gradient(180deg,rgba(25,54,92,.12)_0%,rgba(25,54,92,.08)_42%,rgba(25,54,92,.2)_100%)]" />
+                    <div className="absolute inset-0 border border-white/28 transition duration-300 group-hover:border-white/70" />
+                    <div className="absolute inset-x-0 bottom-0 h-1.5 bg-portfolio-accent transition duration-300 group-hover:h-2" aria-hidden="true" />
+                    <div className="absolute inset-x-4 top-4 overflow-hidden border border-white/24 bg-[#1f3f6d]/72 p-5 text-white shadow-portfolio backdrop-blur-[2px] transition duration-300 group-hover:border-white/45 group-hover:bg-white/90 group-hover:text-portfolio-ink min-[760px]:inset-x-6 min-[760px]:top-6 min-[760px]:p-6 min-[1120px]:inset-x-8 min-[1120px]:top-8">
                       <div className="relative">
                       <div className="mb-4 flex items-center gap-4">
                         <span className="text-sm font-medium tracking-[.08em] text-portfolio-accent">{String(index + 1).padStart(2, "0")}</span>
-                        <span className="h-px flex-1 bg-white/30" aria-hidden="true" />
-                        <span className="text-[11px] font-medium uppercase tracking-[.12em] text-white/72 drop-shadow">GBMIC Network</span>
+                        <span className="h-px flex-1 bg-white/45 transition-colors group-hover:bg-portfolio-line" aria-hidden="true" />
+                        <span className="text-[11px] font-medium uppercase tracking-[.12em] text-white/82 drop-shadow transition-colors group-hover:text-portfolio-muted group-hover:drop-shadow-none">GBMIC Network</span>
                       </div>
-                      <h3 className="max-w-[24ch] text-[clamp(22px,3vw,34px)] leading-[1.05] font-medium tracking-[-.03em] drop-shadow-[0_2px_12px_rgba(0,0,0,.45)]">{title}</h3>
-                      <p className="mt-4 max-w-[50ch] text-[15.5px] leading-relaxed text-white/86 drop-shadow-[0_1px_8px_rgba(0,0,0,.5)]">{description}</p>
+                      <h3 className="max-w-[24ch] text-[clamp(22px,2.35vw,32px)] leading-[1.05] font-medium tracking-[-.03em] drop-shadow-[0_2px_12px_rgba(0,0,0,.45)] transition group-hover:drop-shadow-none">{title}</h3>
+                      <p className="mt-4 max-w-[50ch] text-[15.5px] leading-relaxed text-white/92 drop-shadow-[0_1px_8px_rgba(0,0,0,.5)] transition group-hover:text-portfolio-muted group-hover:drop-shadow-none">{description}</p>
                       </div>
                     </div>
-                    <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-4 text-white min-[760px]:inset-x-6 min-[760px]:bottom-6">
+                    <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-4 text-white min-[760px]:inset-x-6 min-[760px]:bottom-6 min-[1120px]:inset-x-8 min-[1120px]:bottom-8">
                       <span className="inline-flex min-h-10 items-center bg-portfolio-accent px-4 text-[13px] font-medium tracking-[-.01em] shadow-portfolio transition duration-300 group-hover:bg-white group-hover:text-portfolio-ink">
                         Explore More
                       </span>
-                      <span className="grid size-11 place-items-center border border-white/35 bg-white/10 text-[22px] leading-none backdrop-blur transition duration-300 group-hover:border-white group-hover:bg-white group-hover:text-portfolio-ink" aria-hidden="true">
+                      <span className="grid size-11 place-items-center border border-white/35 bg-[#1f3f6d]/55 text-[22px] leading-none backdrop-blur transition duration-300 group-hover:border-white group-hover:bg-white group-hover:text-portfolio-ink" aria-hidden="true">
                         +
                       </span>
                     </div>
-                    <a className="absolute right-3 bottom-18 bg-black/45 px-2 py-1 text-[9px] leading-none text-white/70 transition hover:bg-black/70 hover:text-white" href={image.href} target="_blank" rel="noreferrer">Photo: {image.credit} / Unsplash</a>
+                    <a className="absolute right-3 bottom-18 bg-white/75 px-2 py-1 text-[9px] leading-none text-portfolio-ink/70 shadow-portfolio backdrop-blur transition hover:bg-white hover:text-portfolio-ink" href={image.href} target="_blank" rel="noreferrer">Photo: {image.credit} / Unsplash</a>
                   </article>
                 );
               })}
