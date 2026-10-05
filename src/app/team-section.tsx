@@ -14,7 +14,7 @@ const teamMembers = [
   {
     name: "Bhim Gurung",
     role: "Global CEO - Global Business Management Investment Company",
-    photo: "/bhim-gurung1.jpeg",
+    photo: "/Bhim-gurung1.jpeg",
     bio: "Leads Global Business Management Investment Company with a focus on business strategy, investment planning, operations, and community-centered growth.",
   },
   {
