@@ -1,7 +1,7 @@
 import nodemailer from "nodemailer";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const recipient = "tokmatechnologies2025@gmail.com";
+const recipient = "bhimgurunggod@gmail.com";
 
 type ContactRequest = {
   name?: unknown;
